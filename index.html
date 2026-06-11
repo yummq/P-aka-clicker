@@ -3,114 +3,114 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Meme Clicker – Płock Edition</title>
+<title>Meme Clicker – Płock Ultra Edition</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
-:root{--pk:#ff2d78;--pu:#9b5cff;--bl:#2de0ff;--ye:#ffe94a;--gr:#00ffaa;--bg:#08080f;--s1:#10101c;--bd:rgba(155,92,255,.22);--tx:#edeaff;--mu:rgba(237,234,255,.45);--gp:0 0 22px rgba(155,92,255,.5),0 0 55px rgba(155,92,255,.2);--gpk:0 0 22px rgba(255,45,120,.5),0 0 55px rgba(255,45,120,.2)}
+:root{--pk:#ff2d78;--pu:#9b5cff;--bl:#2de0ff;--ye:#ffe94a;--gr:#00ffaa;--bg:#05050a;--s1:#0c0c16;--bd:rgba(155,92,255,.22);--tx:#edeaff;--mu:rgba(237,234,255,.45);--gp:0 0 22px rgba(155,92,255,.5),0 0 55px rgba(155,92,255,.2);--gpk:0 0 22px rgba(255,45,120,.5),0 0 55px rgba(255,45,120,.2)}
 *{box-sizing:border-box;margin:0;padding:0}html,body{height:100%;overflow:hidden}
 body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--tx);display:flex;flex-direction:column;transition:background .5s;user-select:none}
 #bgc{position:fixed;inset:0;z-index:0;pointer-events:none}
-.blob{position:fixed;border-radius:50%;filter:blur(120px);opacity:.12;pointer-events:none;z-index:0}
+.blob{position:fixed;border-radius:50%;filter:blur(130px);opacity:.1;pointer-events:none;z-index:0}
 .b1{width:700px;height:700px;background:var(--pu);top:-200px;left:-150px;animation:bd 22s ease-in-out infinite alternate}
 .b2{width:600px;height:600px;background:var(--pk);bottom:-180px;right:-120px;animation:bd 28s ease-in-out infinite alternate-reverse}
 .b3{width:450px;height:450px;background:var(--bl);top:45%;left:48%;transform:translate(-50%,-50%);animation:bd 19s ease-in-out infinite alternate}
 @keyframes bd{from{transform:translate(0,0) scale(1)}to{transform:translate(45px,35px) scale(1.14)}}
 #news{position:relative;z-index:10;background:rgba(155,92,255,.15);border-bottom:1px solid var(--bd);padding:8px 0;overflow:hidden;flex-shrink:0}
 #ntrack{display:inline-block;white-space:nowrap;font-size:12px;color:var(--ye);font-weight:600;padding-left:100%;position:relative}
-.layout{position:relative;z-index:1;display:grid;grid-template-columns:290px minmax(0,1fr) 330px;flex:1;overflow:hidden}
+.layout{position:relative;z-index:1;display:grid;grid-template-columns:310px minmax(0,1fr) 340px;flex:1;overflow:hidden}
 /* LEFT */
-.lp{background:rgba(8,8,15,.92);backdrop-filter:blur(20px);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden}
-.ph{padding:12px 14px 10px;border-bottom:1px solid var(--bd);flex-shrink:0}
+.lp{background:rgba(5,5,10,.94);backdrop-filter:blur(25px);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden}
+.ph{padding:14px;border-bottom:1px solid var(--bd);flex-shrink:0}
 .ph h2{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(90deg,var(--pu),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ph p{font-size:10px;color:var(--mu);margin-top:2px}
-.blist{flex:1;overflow-y:auto;padding:7px;display:flex;flex-direction:column;gap:6px;scrollbar-width:thin;scrollbar-color:rgba(155,92,255,.25) transparent}
-.blist::-webkit-scrollbar{width:3px}\.blist::-webkit-scrollbar-thumb{background:rgba(155,92,255,.3);border-radius:3px}
-.bld{display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:8px 10px;cursor:pointer;transition:all .12s;position:relative;overflow:hidden}
-.bld::before{content:'';position:absolute;inset:0;opacity:0;background:linear-gradient(135deg,rgba(155,92,255,.12),rgba(45,224,255,.06));transition:opacity .12s}
-.bld.dis{opacity:.3;cursor:not-allowed}
-.bld:not(.dis):hover{border-color:rgba(155,92,255,.5);box-shadow:0 0 14px rgba(155,92,255,.18);transform:translateX(2px)}
-.bld:not(.dis):hover::before{opacity:1}
-.bi{font-size:18px;width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(155,92,255,.14);border:1px solid rgba(155,92,255,.25);flex-shrink:0;position:relative;z-index:1}
-.bb{flex:1;min-width:0;position:relative;z-index:1}
-.bn{font-size:12px;font-weight:700}\.bd2{font-size:10px;color:var(--mu)}
-.brt{text-align:right;flex-shrink:0;position:relative;z-index:1;min-width:60px}
-.bc{font-size:12px;font-weight:800;background:linear-gradient(135deg,var(--ye),#ffb347);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.blist{flex:1;overflow-y:auto;padding:8px;display:flex;flex-direction:column;gap:6px;scrollbar-width:thin;scrollbar-color:rgba(155,92,255,.25) transparent}
+.blist::-webkit-scrollbar{width:3px}\.blist::-webkit-scrollbar-thumb{background:rgba(155,92,255,.3)}
+.bld{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:10px;cursor:pointer;transition:all .12s;position:relative;overflow:hidden}
+.bld.dis{opacity:.25;cursor:not-allowed}
+.bld:not(.dis):hover{border-color:rgba(155,92,255,.5);box-shadow:0 0 14px rgba(155,92,255,.15);transform:translateX(3px)}
+.bi{font-size:20px;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(155,92,255,.12);border:1px solid rgba(155,92,255,.22);flex-shrink:0}
+.bb{flex:1;min-width:0}.bn{font-size:13px;font-weight:700}.bd2{font-size:10px;color:var(--mu)}
+.brt{text-align:right;flex-shrink:0;min-width:70px}
+.bc{font-size:13px;font-weight:800;color:var(--ye)}
 .bcl{font-size:9px;color:var(--mu);text-transform:uppercase}
 /* CENTER */
-.cp{display:flex;flex-direction:column;align-items:center;padding:14px;gap:14px;overflow-y:auto;scrollbar-width:none}
+.cp{display:flex;flex-direction:column;align-items:center;padding:16px;gap:16px;overflow-y:auto;scrollbar-width:none}
 .cp::-webkit-scrollbar{display:none}
-.ctit{font-size:24px;font-weight:900;text-align:center;background:linear-gradient(90deg,var(--pk),var(--pu),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 12px rgba(155,92,255,.5))}
-.cbadge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:linear-gradient(135deg,var(--pk),var(--pu));color:#fff;box-shadow:var(--gpk)}
-.strip{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;width:100%}
-.pill{background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:9px;padding:6px 12px;text-align:center;min-width:80px}
-.pill .sl{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--mu)}
-.pill .sv{font-size:14px;font-weight:800;background:linear-gradient(135deg,var(--bl),var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.ring{width:230px;height:230px;border-radius:50%;padding:4px;background:conic-gradient(from 0deg,var(--pk),var(--pu),var(--bl),var(--ye),var(--gr),var(--pk));animation:spin 4s linear infinite;cursor:pointer;box-shadow:var(--gp),0 22px 50px rgba(0,0,0,.7);transition:transform .08s;position:relative}
+.ctit{font-size:26px;font-weight:900;text-align:center;background:linear-gradient(90deg,var(--pk),var(--pu),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 12px rgba(155,92,255,.4))}
+.cbadge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:3px 12px;border-radius:999px;background:linear-gradient(135deg,var(--pk),var(--pu));color:#fff;box-shadow:var(--gpk)}
+.strip{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;width:100%}
+.pill{background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:10px;padding:6px 10px;text-align:center;flex:1;min-width:75px}
+.pill .sl{font-size:9px;text-transform:uppercase;color:var(--mu)}
+.pill .sv{font-size:13px;font-weight:800;color:#fff}
+.ring{width:220px;height:220px;border-radius:50%;padding:4px;background:conic-gradient(from 0deg,var(--pk),var(--pu),var(--bl),var(--ye),var(--gr),var(--pk));animation:spin 4s linear infinite;cursor:pointer;box-shadow:var(--gp),0 20px 40px rgba(0,0,0,.6);transition:transform .05s}
 @keyframes spin{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(360deg)}}
-.ring:hover{transform:scale(1.04)}.ring:active{transform:scale(.94) translateY(3px)}
+.ring:hover{transform:scale(1.03)}.ring:active{transform:scale(.95) translateY(2px)}
 .rinn{width:100%;height:100%;border-radius:50%;background:var(--s1);overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative}
-.mimg{width:112%;height:112%;object-fit:cover;pointer-events:none;transition:transform .3s}
-.mtag{position:absolute;bottom:11px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.8);backdrop-filter:blur(10px);color:#fff;border:1px solid rgba(255,255,255,.2);padding:3px 12px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.mimg{width:115%;height:115%;object-fit:cover;pointer-events:none}
+.mtag{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.85);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.15);padding:3px 12px;border-radius:999px;font-size:10px;font-weight:700;text-transform:uppercase;white-space:nowrap}
 .cblock{text-align:center}
-.clbl{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--mu);margin-bottom:2px}
-.cval{font-size:48px;font-weight:900;line-height:1;background:linear-gradient(135deg,#fff 35%,var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 16px rgba(155,92,255,.4))}
-.pck{margin-top:3px;font-size:12px;color:var(--mu)}.pck strong{color:var(--ye)}
+.clbl{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--mu)}
+.cval{font-size:44px;font-weight:900;line-height:1;background:linear-gradient(135deg,#fff,var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pck{margin-top:2px;font-size:11px;color:var(--mu)}.pck strong{color:var(--ye)}
 .arow{display:flex;gap:12px}
-.abtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--bd);background:rgba(155,92,255,.1);color:var(--tx);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s}
-.abtn:hover{background:rgba(155,92,255,.25);border-color:var(--pu);transform:translateY(-2px)}
+.abtn{width:38px;height:38px;border-radius:50%;border:1px solid var(--bd);background:rgba(155,92,255,.1);color:var(--tx);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s}
+.abtn:hover{background:rgba(155,92,255,.25);transform:translateY(-1px)}
 /* RIGHT */
-.rp{background:rgba(8,8,15,.92);backdrop-filter:blur(20px);border-left:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden}
+.rp{background:rgba(5,5,10,.94);backdrop-filter:blur(25px);border-left:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden}
 .tabs{display:flex;border-bottom:1px solid var(--bd);flex-shrink:0}
-.tab{flex:1;padding:12px 2px;text-align:center;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;color:var(--mu);border-bottom:2px solid transparent;transition:all .12s}
+.tab{flex:1;padding:12px 2px;text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;cursor:pointer;color:var(--mu);border-bottom:2px solid transparent}
 .tab.active{color:var(--pu);border-bottom-color:var(--pu)}.tab:hover:not(.active){color:var(--tx)}
 .tc{flex:1;overflow-y:auto;padding:8px;display:none;flex-direction:column;gap:6px;scrollbar-width:thin;scrollbar-color:rgba(155,92,255,.25) transparent}
 .tc.active{display:flex}
-/* Upgrades */
-.upg{display:flex;gap:10px;padding:9px 11px;border-radius:10px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);align-items:center;cursor:pointer;transition:all .12s;position:relative}
-.upg.dis{opacity:.3;cursor:not-allowed}
-.upg.bought{border-color:var(--gr);background:rgba(0,255,170,.04);cursor:default}
+/* Cards */
+.upg{display:flex;gap:8px;padding:8px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);align-items:center;cursor:pointer;transition:all .12s}
+.upg.dis{opacity:.25;cursor:not-allowed}
+.upg.bought{border-color:var(--gr);background:rgba(0,255,170,.03);cursor:default}
 .upg:not(.dis):not(.bought):hover{border-color:var(--pu);transform:translateY(-1px)}
-.ui2{font-size:18px;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05)}
-.ub{flex:1;min-width:0}.un{font-size:12px;font-weight:700}.ud{font-size:10px;color:var(--mu);line-height:1.2}
+.ui2{font-size:16px;width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04)}
+.ub{flex:1;min-width:0}.un{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ud{font-size:10px;color:var(--mu);line-height:1.2}
 .ucost{font-size:11px;font-weight:800;color:var(--ye)}
 .ubought-txt{font-size:10px;font-weight:800;color:var(--gr);text-transform:uppercase}
-/* Worlds */
-.wcard{padding:10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;gap:6px}
-.wcard.active{border-color:var(--bl);background:rgba(45,224,255,.05)}
-.wt{display:flex;gap:8px;align-items:center}.wic{font-size:20px}.wn{font-size:13px;font-weight:700}.wd{font-size:10px;color:var(--mu)}
-/* Toast & Effects */
-#toast{position:fixed;top:60px;left:50%;transform:translateX(-50%) translateY(-20px);background:rgba(12,12,24,.96);backdrop-filter:blur(20px);border:1px solid var(--pu);border-radius:12px;padding:10px 20px;text-align:center;z-index:9999;opacity:0;pointer-events:none;box-shadow:var(--gp);transition:all .4s cubic-bezier(.34,1.56,.64,1)}
+/* Worlds Expanded */
+.wcard{padding:12px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);display:flex;flex-direction:column;gap:4px;transition:all .2s}
+.wcard.active{border-color:var(--bl);background:rgba(45,224,255,.06);box-shadow:0 0 15px rgba(45,224,255,.1)}
+.wcard.lck{opacity:.35;cursor:not-allowed}
+.wt{display:flex;gap:10px;align-items:center}.wic{font-size:22px}.wn{font-size:13px;font-weight:700}.wd{font-size:10px;color:var(--mu)}
+.wreq{font-size:9px;color:var(--pk);font-weight:800;text-transform:uppercase;margin-top:2px}
+/* FX */
+#toast{position:fixed;top:60px;left:50%;transform:translateX(-50%) translateY(-20px);background:rgba(10,10,20,.98);backdrop-filter:blur(20px);border:1px solid var(--pu);border-radius:12px;padding:10px 20px;text-align:center;z-index:9999;opacity:0;pointer-events:none;box-shadow:var(--gp);transition:all .4s cubic-bezier(.34,1.56,.64,1)}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast .tt{font-size:13px;font-weight:800;color:var(--ye)}
 #toast .tb{font-size:10px;color:var(--mu);margin-top:2px}
-.ft{position:fixed;font-weight:900;font-size:20px;pointer-events:none;text-shadow:0 0 10px currentColor;animation:flt .8s cubic-bezier(.22,1,.36,1) forwards;z-index:9990}
-@keyframes flt{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-70px) scale(.85)}}
+.ft{position:fixed;font-weight:900;font-size:20px;pointer-events:none;text-shadow:0 0 8px currentColor;animation:flt .7s ease-out forwards;z-index:9990}
+@keyframes flt{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-60px) scale(.85)}}
 .rpf{padding:6px;border-top:1px solid var(--bd);font-size:9px;color:var(--mu);text-align:center}
-#savi{position:fixed;bottom:8px;right:8px;font-size:9px;color:var(--gr);opacity:0;transition:opacity .3s;z-index:100}.savi.show{opacity:1}
+#savi{position:fixed;bottom:8px;right:8px;font-size:9px;color:var(--gr);opacity:0;transition:opacity .3s;z-index:100}
+#savi.show{opacity:1}
 </style>
 </head>
 <body>
 <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
 <canvas id="bgc"></canvas>
 
-<div id="news"><div id="ntrack" id="news-text">Pobieranie najświeższych danych z TikToka i ulic Płocka...</div></div>
+<div id="news"><div id="ntrack">Nawiązywanie połączenia z serwerem czasu rzeczywistego...</div></div>
 
 <div class="layout">
   <div class="lp">
-    <div class="ph"><h2>🏗️ Biznesy z Płocka</h2><p>Generują automatyczne kliki na sekundę</p></div>
+    <div class="ph"><h2>🏗️ Przemysł Płocki</h2><p>Automatyczna fabryka punktów</p></div>
     <div class="blist" id="blist"></div>
   </div>
   
   <div class="cp">
     <div style="text-align:center">
       <div class="ctit">Meme Clicker</div>
-      <div style="margin-top:4px"><span class="cbadge">Płock Live Edition</span></div>
+      <div style="margin-top:4px"><span class="cbadge">Ultra Progress Edition</span></div>
     </div>
     <div class="strip">
-      <div class="pill"><div class="sl">Stan konta</div><div class="sv" id="sc">0</div></div>
-      <div class="pill"><div class="sl">Łącznie</div><div class="sv" id="sat">0</div></div>
-      <div class="pill"><div class="sl">Na sekunde</div><div class="sv" id="scps">0</div></div>
-      <div class="pill"><div class="sl">Mnożnik</div><div class="sv" id="smul">1.0x</div></div>
+      <div class="pill"><div class="sl">Kliki</div><div class="sv" id="sc">0</div></div>
+      <div class="pill"><div class="sl">Łącznie (Ever)</div><div class="sv" id="sat">0</div></div>
+      <div class="pill"><div class="sl">Na sekundę</div><div class="sv" id="scps">0</div></div>
+      <div class="pill"><div class="sl">Wieluń świata</div><div class="sv" id="smul">1.0x</div></div>
     </div>
     <div class="ring" id="mring">
       <div class="rinn">
@@ -119,9 +119,9 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
       </div>
     </div>
     <div class="cblock">
-      <div class="clbl">Kliknięcia</div>
+      <div class="clbl">Aktualny Stan</div>
       <div class="cval" id="cnt">0</div>
-      <div class="pck" id="pci">+<strong>1</strong> za klik</div>
+      <div class="pck" id="pci">+<strong>1</strong> / klik</div>
     </div>
     <div class="arow">
       <button class="abtn" id="pm">&#8592;</button>
@@ -130,29 +130,27 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
   </div>
   
   <div class="rp">
-    <div class="ph"><h2>⚡ Panel Sterowania</h2><p id="uci">Ulepszaj klik i automatyzację</p></div>
+    <div class="ph"><h2>⚡ Drzewo Rozwoju</h2><p>Kupuj ulepszenia i podróżuj przez uniwersum</p></div>
     <div class="tabs">
-      <div class="tab active" id="t-upg" onclick="switchTab('upg')">⚡ Ulepszenia</div>
-      <div class="tab" id="t-wld" onclick="switchTab('wld')">🌍 Światy (Wkrótce)</div>
+      <div class="tab active" id="t-upg" onclick="switchTab('upg')">⚡ Ulepszenia (100)</div>
+      <div class="tab" id="t-wld" onclick="switchTab('wld')">🌍 Światy (10)</div>
     </div>
     <div class="tc active" id="upg-panel"></div>
     <div class="tc" id="wld-panel"></div>
-    <div class="rpf">Made for Zahar • Live Data Engine</div>
+    <div class="rpf">Zahar Engine v3.0 • Leaderboard Sync Ready</div>
   </div>
 </div>
 
 <div id="toast"><div class="tt" id="tt"></div><div class="tb" id="tb"></div></div>
-<div id="savi">💾 Zapisano grę</div>
+<div id="savi">💾 Synchronizacja zapisu...</div>
 
 <script>
-/* ── BACKGROUND STARFIELD ── */
-(()=>{const c=document.getElementById('bgc'),cx=c.getContext('2d');let W,H,S=[];const R=()=>{W=c.width=innerWidth;H=c.height=innerHeight};const ms=()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random(),sp:Math.random()*.35+.08,d:Math.random()>.5?1:-1});const init=n=>{S=[];for(let i=0;i<n;i++)S.push(ms())};const draw=()=>{cx.clearRect(0,0,W,H);S.forEach(s=>{s.a+=s.sp*s.d*.007;if(s.a>1||s.a<0)s.d*=-1;cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=`rgba(255,255,255,${s.a})`;cx.fill()});requestAnimationFrame(draw)};R();addEventListener('resize',()=>{R();init(180)});init(180);draw()})();
+/* ── STARFIELD ── */
+(()=>{const c=document.getElementById('bgc'),cx=c.getContext('2d');let W,H,S=[];const R=()=>{W=c.width=innerWidth;H=c.height=innerHeight};const ms=()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.2,a:Math.random(),sp:Math.random()*.3+.05,d:Math.random()>.5?1:-1});const init=n=>{S=[];for(let i=0;i<n;i++)S.push(ms())};const draw=()=>{cx.clearRect(0,0,W,H);S.forEach(s=>{s.a+=s.sp*s.d*.005;if(s.a>1||s.a<0)s.d*=-1;cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=`rgba(255,255,255,${s.a})`;cx.fill()});requestAnimationFrame(draw)};R();addEventListener('resize',()=>{R();init(150)});init(150);draw()})();
 
-/* ── GAME STATE ── */
+/* ── STATE ── */
 let clicks = 0;
 let totalClicksEver = 0;
-let globalMultiplier = 1.0;
-let clickPowerBonus = 0;
 let currentMemeIndex = 0;
 
 const MEMES=[
@@ -163,95 +161,148 @@ const MEMES=[
 ];
 
 const BUILDINGS=[
-  {id:'cur',  ic:'☝️', n:'Mega Palec',       bc:15,    count:0, cps:0.2},
-  {id:'cio',  ic:'👵', n:'Ciotka z Płocka',  bc:100,   count:0, cps:1.0},
-  {id:'scr',  ic:'📱', n:'Auto-TikToker',    bc:1100,  count:0, cps:8.0},
-  {id:'mfm',  ic:'🏭', n:'Rozlewnia Amfet...',bc:12000, count:0, cps:47.0},
-  {id:'orl',  ic:'🦅', n:'Kombinat Orlenu',  bc:85000, count:0, cps:260.0}
+  {id:'cur',  ic:'☝️', n:'Mega Palec',         bc:15,       count:0, cps:0.2},
+  {id:'cio',  ic:'👵', n:'Ciotka z Płocka',    bc:100,      count:0, cps:1.2},
+  {id:'scr',  ic:'📱', n:'Automatyczny Skroll',bc:1100,     count:0, cps:8},
+  {id:'mfm',  ic:'🏭', n:'Rozlewnia Memów',    bc:12000,    count:0, cps:48},
+  {id:'orl',  ic:'🦅', n:'Kombinat Orlenu',    bc:130000,   count:0, cps:260},
+  {id:'tkt',  ic:'🚀', n:'Serwerownia TikToka',bc:1400000,  count:0, cps:1400},
+  {id:'zah',  ic:'👑', n:'Klon Zahara',        bc:20000000, count:0, cps:8500}
 ];
 
-const UPGRADES=[
-  {id:'u1', ic:'🔥', n:'Szybki Kciuk',     desc:'Kliknięcia dają +1 więcej podstawy', cost:50,   bought:false, type:'click', val:1},
-  {id:'u2', ic:'🥤', n:'Napój Energetyczny',desc:'Zwiększa globalną produkcję o 10%', cost:250,  bought:false, type:'global', val:0.1},
-  {id:'u3', ic:'📈', n:'Algorytm TikToka',  desc:'Podwaja wydajność Mega Palca',      cost:600,  bought:false, type:'bld', target:'cur', factor:2},
-  {id:'u4', ic:'💰', n:'Dotacje z Miasta',  desc:'Zwiększa globalną produkcję o 20%', cost:2500, bought:false, type:'global', val:0.2},
-  {id:'u5', ic:'👑', n:'Władca Płocka',     desc:'Kliknięcia dają +5 więcej',         cost:5000, bought:false, type:'click', val:5}
+const UPGRADES = [];
+const WORLDS = [
+  {id:1,  ic:'🏢', n:'Podolszyce Północ',  desc:'Tutaj zaczęła się cała historia.', req:0,        mul:1.0},
+  {id:2,  ic:'🌉', n:'Stary Most w Płocku',desc:'Podwajamy zyski dzięki lokalnym wiatrom.', req:500,      mul:2.0},
+  {id:3,  ic:'🏟️', n:'Stadion Wisły Płock',desc:'Kibice generują ogromny szum medialny.', req:5000,     mul:3.5},
+  {id:4,  ic:'🛒', n:'Galeria Mosty',      desc:'Masowy handel i nielegalne dystrybucje.', req:25000,    mul:5.0},
+  {id:5,  ic:'🧪', n:'Laboratoria Orlenu', desc:'Zaawansowana synteza czystego paliwa.', req:150000,   mul:8.0},
+  {id:6,  ic:'🛸', n:'Ukryte Metro Płock', desc:'Legendarna sieć tuneli pod miastem.',   req:1000000,  mul:15.0},
+  {id:7,  ic:'🌌', n:'Wirtualny TikTok',   desc:'Przeniesienie świadomości do sieci.',    req:7500000,  mul:30.0},
+  {id:8,  ic:'🪐', n:'Kolonia na Marsie',  desc:'Płock przejmuje czerwoną planetę.',      req:50000000, mul:75.0},
+  {id:9,  ic:'👑', n:'Wymiar Zahara',      desc:'Absolutna dominacja czasoprzestrzeni.',  req:400000000,mul:200.0},
+  {id:10, ic:'🌀', n:'Osobliwość Memiczna',desc:'Koniec czasu. Nieskończona potęga.',     req:2000000000,mul:1000.0}
 ];
 
-/* ── REAL-TIME TICKER (INFO U GÓRY STRONY) ── */
-const LIVE_NEWS = [
-  "🔥 LIVE: Nowy rekord kliknięć na TikToku pobity w centrum Płocka!",
-  "⚠️ ALERT: Ktoś zjadł całą tortą na raz pod blokiem na Podolszycach.",
-  "📈 LEADERBOARD INFO: Serwer bazy danych przygotowywany pod globalny ranking graczy.",
-  "💡 TIP: Kup ulepszenie 'Algorytm TikToka', aby odpalić pełną moc automatycznych palców.",
-  "👑 LIVE: Zahar zyskuje miano oficjalnego sponsora płockich memów."
-];
-function startRealtimeTicker() {
-  const track = document.getElementById('ntrack');
-  let index = 0;
-  function nextNews() {
-    track.innerText = LIVE_NEWS[index];
-    track.style.animation = 'none';
-    track.offsetHeight; // Wyzwolenie reflow do zresetowania animacji
-    track.style.animation = 'scroll 25s linear infinite';
-    index = (index + 1) % LIVE_NEWS.length;
+/* ── GENERATE 100 COOKIE-CLICKER-STYLE UPGRADES ── */
+function generate100Upgrades() {
+  // 1. Podstawowe ulepszenia kliku (1 - 15)
+  for(let i=1; i<=15; i++) {
+    UPGRADES.push({
+      id: `clk_${i}`, ic: '🔥', n: `Mocny Klik t. ${i}`,
+      desc: `Zwiększa bazową siłę kliknięcia o +${i * 2}`,
+      cost: Math.floor(60 * Math.pow(2.8, i)), bought: false, type: 'click', val: i * 2
+    });
   }
-  nextNews();
-  setInterval(nextNews, 25000);
+  // 2. Dedukowane ulepszenia dla budynków (16 - 85) - po 10 dla każdego z 7 budynków
+  BUILDINGS.forEach((b) => {
+    for(let j=1; j<=10; j++) {
+      UPGRADES.push({
+        id: `bld_${b.id}_${j}`, ic: '⚡', n: `${b.n} (Tier ${j})`,
+        desc: `Mnożnik efektywności struktury [${b.n}] zostaje podwojony (x2).`,
+        cost: Math.floor(b.bc * 2.5 * Math.pow(4, j)), bought: false, type: 'bld', target: b.id, factor: 2
+      });
+    }
+  });
+  // 3. Globalne ulepszenia korporacyjne (86 - 100)
+  for(let k=1; k<=15; k++) {
+    UPGRADES.push({
+      id: `gl_upg_${k}`, ic: '👑', n: `Płocki Syndykat v.${k}`,
+      desc: `Globalna produkcja wzrasta o +${k * 10}% na stałe.`,
+      cost: Math.floor(50000 * Math.pow(3.5, k)), bought: false, type: 'global', val: k * 0.1
+    });
+  }
+}
+generate100Upgrades();
+
+/* ── REALTIME TICKER ── */
+const TICKERS = [
+  "🔥 LIVE FEED: Gracze z Płocka domagają się natychmiastowej integracji globalnego Rankingu!",
+  "⚠️ SYNC DATA: Przygotowano tabele SQL i endpointy API pod system zapisu w chmurze.",
+  "🚀 TIKTOK: Mem 'płakał' zyskuje 200% wiralowości na sekundę w całej Polsce.",
+  "💡 TIP: Odblokuj 'Stary Most w Płocku', aby natychmiastowo podwoić globalny mnożnik punktów.",
+  "📈 REALTIME: Wykryto rekordową aktywność automatycznych palców użytkownika Zahar."
+];
+function initTicker() {
+  const track = document.getElementById('ntrack');
+  let idx = 0;
+  function updateText() {
+    track.innerText = TICKERS[idx];
+    track.style.animation = 'none';
+    track.offsetHeight;
+    track.style.animation = 'scroll 26s linear infinite';
+    idx = (idx + 1) % TICKERS.length;
+  }
+  updateText();
+  setInterval(updateText, 26000);
 }
 
 /* ── CALCULATIONS ── */
-function getBuildingCPS(b) {
-  let baseCps = b.cps;
-  // Sprawdź czy ulepszenia podnoszą wydajność tego konkretnego budynku
-  UPGRADES.forEach(u => {
-    if (u.bought && u.type === 'bld' && u.target === b.id) {
-      baseCps *= u.factor;
-    }
-  });
-  return baseCps;
+function getCurrentWorld() {
+  let active = WORLDS[0];
+  for(let w of WORLDS) {
+    if(totalClicksEver >= w.req) active = w;
+  }
+  return active;
 }
 
-function getBaseCPS() {
-  return BUILDINGS.reduce((sum, b) => sum + (b.count * getBuildingCPS(b)), 0);
+function getBuildingCPS(b) {
+  let base = b.cps;
+  UPGRADES.forEach(u => {
+    if (u.bought && u.type === 'bld' && u.target === b.id) base *= u.factor;
+  });
+  return base;
+}
+
+function getGlobalMultiplier() {
+  let mult = getCurrentWorld().mul;
+  UPGRADES.forEach(u => {
+    if (u.bought && u.type === 'global') mult += u.val;
+  });
+  return mult;
 }
 
 function getTotalCPS() {
-  return getBaseCPS() * globalMultiplier;
+  let baseSum = BUILDINGS.reduce((sum, b) => sum + (b.count * getBuildingCPS(b)), 0);
+  return baseSum * getGlobalMultiplier();
 }
 
 function getClickPower() {
-  return (1 + clickPowerBonus);
+  let pwr = 1;
+  UPGRADES.forEach(u => {
+    if (u.bought && u.type === 'click') pwr += u.val;
+  });
+  return pwr * getGlobalMultiplier();
 }
 
-/* ── RE-RENDER UI ── */
+/* ── INTERACTIVE UI RENDER ── */
 function updateUI() {
-  document.getElementById('cnt').innerText = Math.floor(clicks);
-  document.getElementById('sc').innerText = Math.floor(clicks);
-  document.getElementById('sat').innerText = Math.floor(totalClicksEver);
+  const world = getCurrentWorld();
+  document.getElementById('cnt').innerText = Math.floor(clicks).toLocaleString();
+  document.getElementById('sc').innerText = Math.floor(clicks).toLocaleString();
+  document.getElementById('sat').innerText = Math.floor(totalClicksEver).toLocaleString();
   document.getElementById('scps').innerText = getTotalCPS().toFixed(1);
-  document.getElementById('smul').innerText = globalMultiplier.toFixed(1) + 'x';
-  document.getElementById('pci').innerHTML = `+<strong>${getClickPower()}</strong> za klik`;
+  document.getElementById('smul').innerText = getGlobalMultiplier().toFixed(1) + 'x';
+  document.getElementById('pci').innerHTML = `+<strong>${Math.floor(getClickPower()).toLocaleString()}</strong> / klik`;
   
   renderBuildings();
   renderUpgrades();
+  renderWorlds();
 }
 
-/* ── INTERACTION ── */
 document.getElementById('mring').addEventListener('click', (e) => {
   let pwr = getClickPower();
   clicks += pwr;
   totalClicksEver += pwr;
   
-  // Floating text
   const ft = document.createElement('div');
   ft.className = 'ft';
   ft.style.left = e.clientX + 'px';
   ft.style.top = e.clientY + 'px';
   ft.style.color = '#00ffaa';
-  ft.innerText = '+' + pwr;
+  ft.innerText = '+' + Math.floor(pwr).toLocaleString();
   document.body.appendChild(ft);
-  setTimeout(() => ft.remove(), 800);
+  setTimeout(() => ft.remove(), 700);
   
   updateUI();
 });
@@ -264,7 +315,7 @@ function buyBuilding(index) {
     b.bc = Math.floor(b.bc * 1.15);
     updateUI();
   } else {
-    showToast('Brak punktów!', `Potrzebujesz ${b.bc} kliknięć.`);
+    showToast('Brak funduszy!', `Potrzebujesz ${b.bc.toLocaleString()} kliknięć.`);
   }
 }
 
@@ -274,24 +325,20 @@ function buyUpgrade(index) {
   if (clicks >= u.cost) {
     clicks -= u.cost;
     u.bought = true;
-    
-    // Zastosuj efekty ulepszenia natychmiast
-    if (u.type === 'click') clickPowerBonus += u.val;
-    if (u.type === 'global') globalMultiplier += u.val;
-    
-    showToast('Kupiono ulepszenie!', `${u.n} aktywne.`);
+    showToast('Odblokowano ulepszenie!', u.n);
     updateUI();
   } else {
-    showToast('Brak funduszy!', `Potrzebujesz ${u.cost} kliknięć.`);
+    showToast('Brak punktów!', `Cena wynosi ${u.cost.toLocaleString()} kliknięć.`);
   }
 }
 
-/* ── RENDERING DYNAMIC PANELS ── */
+/* ── DYNAMIC PANEL RENDERS ── */
 function renderBuildings() {
   const list = document.getElementById('blist');
   list.innerHTML = '';
+  const gMul = getGlobalMultiplier();
   BUILDINGS.forEach((b, i) => {
-    const activeCps = (getBuildingCPS(b) * globalMultiplier).toFixed(1);
+    const actCps = (getBuildingCPS(b) * gMul).toFixed(1);
     const div = document.createElement('div');
     div.className = `bld ${clicks < b.bc ? 'dis' : ''}`;
     div.onclick = () => buyBuilding(i);
@@ -299,10 +346,10 @@ function renderBuildings() {
       <div class="bi">${b.ic}</div>
       <div class="bb">
         <div class="bn">${b.n}</div>
-        <div class="bd2">Ilość: ${b.count} (każdy: +${activeCps}/s)</div>
+        <div class="bd2">Ilość: ${b.count} (Zysk: +${actCps}/s każdy)</div>
       </div>
       <div class="brt">
-        <div class="bc">${b.bc}</div>
+        <div class="bc">${b.bc.toLocaleString()}</div>
         <div class="bcl">kliknięć</div>
       </div>
     `;
@@ -313,23 +360,24 @@ function renderBuildings() {
 function renderUpgrades() {
   const panel = document.getElementById('upg-panel');
   panel.innerHTML = '';
+  
+  // Renderujemy tylko te ulepszenia, które nie są kupione (lub maksymalnie 25 dostępnych na raz, żeby utrzymać wydajność)
+  let renderedCount = 0;
   UPGRADES.forEach((u, i) => {
+    if (u.bought) return;
+    if (renderedCount > 30) return; // Limit wyświetlania w panelu, by uniknąć lagów interfejsu
+    
+    renderedCount++;
     const div = document.createElement('div');
-    if (u.bought) {
-      div.className = 'upg bought';
-    } else {
-      div.className = `upg ${clicks < u.cost ? 'dis' : ''}`;
-      div.onclick = () => buyUpgrade(i);
-    }
+    div.className = `upg ${clicks < u.cost ? 'dis' : ''}`;
+    div.onclick = () => buyUpgrade(i);
     div.innerHTML = `
       <div class="ui2">${u.ic}</div>
       <div class="ub">
         <div class="un">${u.n}</div>
         <div class="ud">${u.desc}</div>
       </div>
-      <div class="ur">
-        ${u.bought ? '<span class="ubought-txt">Aktywne</span>' : `<span class="ucost">${u.cost} c.</span>`}
-      </div>
+      <div class="ur"><span class="ucost">${u.cost.toLocaleString()}</span></div>
     `;
     panel.appendChild(div);
   });
@@ -337,29 +385,33 @@ function renderUpgrades() {
 
 function renderWorlds() {
   const panel = document.getElementById('wld-panel');
-  panel.innerHTML = `
-    <div class="wcard active">
+  panel.innerHTML = '';
+  const currentW = getCurrentWorld();
+  
+  WORLDS.forEach(w => {
+    const isLocked = totalClicksEver < w.req;
+    const div = document.createElement('div');
+    div.className = `wcard ${currentW.id === w.id ? 'active' : ''} ${isLocked ? 'lck' : ''}`;
+    div.innerHTML = `
       <div class="wt">
-        <div class="wic">🌍</div>
-        <div class="win"><div class="wn">Płock Podolszyce</div><div class="wd">Twoje główne imperium memów. (Aktywne)</div></div>
+        <div class="wic">${isLocked ? '🔒' : w.ic}</div>
+        <div class="win">
+          <div class="wn">${w.n} (Mnożnik: ${w.mul}x)</div>
+          <div class="wd">${isLocked ? '???' : w.desc}</div>
+          ${isLocked ? `<div class="wreq">Wymaga łącznie: ${w.req.toLocaleString()} kliknięć</div>` : ''}
+        </div>
       </div>
-    </div>
-    <div class="wcard" style="opacity: 0.4; cursor: not-allowed;">
-      <div class="wt">
-        <div class="wic">🔒</div>
-        <div class="win"><div class="wn">Studio TikToka w Warszawie</div><div class="wd">Wymaga bazy danych i leaderboardu (Wkrótce)</div></div>
-      </div>
-    </div>
-  `;
+    `;
+    panel.appendChild(div);
+  });
 }
 
-/* ── NAVIGATION ── */
+/* ── NAVIGATION & AUX ── */
 window.switchTab = function(tabId) {
   document.getElementById('upg-panel').style.display = 'none';
   document.getElementById('wld-panel').style.display = 'none';
   document.getElementById('t-upg').classList.remove('active');
   document.getElementById('t-wld').classList.remove('active');
-  
   document.getElementById(tabId + '-panel').style.display = 'flex';
   document.getElementById('t-' + tabId).classList.add('active');
 }
@@ -378,10 +430,10 @@ function showToast(title, body) {
   document.getElementById('tt').innerText = title;
   document.getElementById('tb').innerText = body;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2200);
+  setTimeout(() => t.classList.remove('show'), 2000);
 }
 
-/* ── AUTOMATIC GAME LOOP ── */
+/* ── AUTOMATIC TICK ENGINE ── */
 setInterval(() => {
   const totalCps = getTotalCPS();
   if (totalCps > 0) {
@@ -391,9 +443,15 @@ setInterval(() => {
   }
 }, 100);
 
-/* ── START ── */
-startRealtimeTicker();
-renderWorlds();
+// Auto-sync ticker simulation
+setInterval(() => {
+  const s = document.getElementById('savi');
+  s.style.opacity = 1;
+  setTimeout(() => s.style.opacity = 0, 1500);
+}, 15000);
+
+/* ── INITIALIZE ── */
+initTicker();
 updateUI();
 </script>
 </body>
