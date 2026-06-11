@@ -177,12 +177,10 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 <canvas id="bgc"></canvas>
 <div id="news"><div id="ntrack">Ładowanie wiadomości z Płocka...</div></div>
 <div class="layout">
-  <!-- LEFT: buildings -->
   <div class="lp">
     <div class="ph"><h2>🏗️ Budynki</h2><p>Kup → kliki/s automatycznie</p></div>
     <div class="blist" id="blist"></div>
   </div>
-  <!-- CENTER -->
   <div class="cp">
     <div style="text-align:center">
       <div class="ctit">Meme Clicker</div>
@@ -199,7 +197,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
     <div class="bonusbar" id="bonusbar"></div>
     <div class="ring" id="mring">
       <div class="rinn">
-        <img id="mimg" class="mimg" src="plakal.jpeg" alt="mem"/>
+        <img id="mimg" class="mimg" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231a1a2e'/><text x='50%27 y='55%27 font-family='sans-serif' font-size='12' fill='%23fff' text-anchor='middle'>MEME IMAGE</text></svg>" alt="mem"/>
         <div class="mtag" id="mlbl">płakał</div>
       </div>
     </div>
@@ -226,7 +224,6 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
     </div>
     <button class="rbtn" id="rbtn">💀 REBIRTH</button>
   </div>
-  <!-- RIGHT -->
   <div class="rp">
     <div class="ph"><h2>⚡ Panel Mocy</h2><p id="uci">Ulepszenia i więcej</p></div>
     <div class="tabs">
@@ -247,7 +244,6 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
   </div>
 </div>
 <button class="golden" id="golden" title="Złoty mem">✨</button>
-<!-- Rebirth modal -->
 <div id="rmodal">
   <div id="rov" onclick="closeRb()"></div>
   <div id="rbox">
@@ -268,587 +264,562 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 <audio id="snd_torta" src="torta.mp3"></audio>
 <audio id="snd_plock" src="plock.mp3"></audio>
 <audio id="snd_czemooo" src="czemooo.mp3"></audio>
+
 <script>
 /* ── STARFIELD ── */
 (()=>{const c=document.getElementById('bgc'),cx=c.getContext('2d');let W,H,S=[];const R=()=>{W=c.width=innerWidth;H=c.height=innerHeight};const ms=()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random(),sp:Math.random()*.35+.08,d:Math.random()>.5?1:-1});const init=n=>{S=[];for(let i=0;i<n;i++)S.push(ms())};const draw=()=>{cx.clearRect(0,0,W,H);S.forEach(s=>{s.a+=s.sp*s.d*.007;if(s.a>1||s.a<0)s.d*=-1;cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=`rgba(255,255,255,${s.a})`;cx.fill()});requestAnimationFrame(draw)};R();addEventListener('resize',()=>{R();init(180)});init(180);draw()})();
 
 /* ── DATA ── */
-const NEWS=['🔴 BREAKING: Zahar kliknął mem 1000 razy. Eksperci z Płocka zdumieni.','📰 Badania UW: klikanie zwiększa IQ o 0.0001%. Zahar jest numerem 1.','🎤 Influencerka z Płocka ogłasza: "czemóóó" to słowo roku.','🚨 Ktoś z Płocka zrobił tortem w mema. Policja szuka.','📍 Płock podnosi podatek od memów. Zahar płaci w kliknięciach.','🍰 Rekord: zjedzono 420 tortów podczas jednej sesji Meme Clickera.','😭 plakal.jpeg płacze po raz 10000. Naukowcy badają zjawisko.','🤡 Czemóóó uznane za oficjalne przywitanie w Urzędzie Gminy Płock.','🚀 FYP algorytm sam zaczął klikać memy. FBI wkracza.','🌊 Wisła wymieniła wodę na kliknięcia. Hydrolodzy potwierdzają.','🤖 AI Zahara napisało powieść. Każdy bohater krzyczy czemóóó.','🏛️ Świątynia Płocka ogłasza Zahara nowym patronem miasta.','💀 Po rebirthu Zahar stał się niezatapialny. Psycholodzy badają.','🌑 Czarna dziura memów wykryta przy ul. Szerokiej 5.','⚗️ Laboratorium wirali otwarte ponownie. Produktywność: nieskończona.','🌌 Wymiar TikToka potwierdzony przez fizyków kwantowych z PW.','🔮 Babcia Zahara przepowiedziała Boskie Kliknięcie w 2019. Nikt nie wierzył.','🎮 Cookie Clicker tweetuje: "Jesteś lepszy niż my". Zahar nie odpowiada.','🏅 Nobel Prize for Meme Physics przyznany Zaharowi. Odbiera z Płocka.','🌐 Imperium Zahara obejmuje 47 krajów. HQ: Płock, ul. Tumska 12.','🌀 Zahar otworzył portal do alternatywnego Płocka. Podatki te same.','🕊️ Boski Serwer Zahara ma lepszy uptime niż Azure. Microsoft płacze.','⏳ Maszyna czasu Zahara utknęła w 2016. Był tam już rok temu.','🧬 WHO ogłasza memetyczną pandemię. Nikt się nie skarży.','💚 Zahar spożył czerwoną tabletkę. Wciąż klika. Matrix bez zmian.','💤 Zahar klika we śnie. Jego CPS jest wyższy niż twój na jawie.','🫥 Zahar wszedł w Pustkę Memów. Memy tam pierwsze.','♾️ Multiwersum Zahara: wszystkie wersje klikają. Jedna się ociąga.','🧠 AGI opracowana w Płocku. Jedyna myśl: klika memy.','📡 Sygnał z Zahara dotarł do Alpha Centauri. Odpowiedź: czemóóó.'];
+const NEWS=['🔴 BREAKING: Zahar kliknął mem 1000 razy. Eksperci z Płocka zdumieni.','📰 Badania UW: klikanie zwiększa IQ o 0.0001%. Zahar jest numerem 1.','🎤 Influencerka z Płocka ogłasza: "czemóóó" to słowo roku.','🚨 Ktoś z Płocka zrobił tortem w mema. Policja szuka.','📍 Płock podnosi podatek od memów. Zahar płaci w kliknięciach.','🍰 Rekord: zjedzono 420 tortów podczas jednej sesji Meme Clickera.','😭 plakal.jpeg płacze po raz 10000. Naukowcy badają zjawisko.','🤡 Czemóóó uznane za oficjalne przywitanie w Urzędzie Gminy Płock.','🚀 FYP algorytm sam zaczął klikać memy. FBI wkracza.','🌊 Wisła wymieniła wodę na kliknięcia. Hydrolodzy potwierdzają.','🤖 AI Zahara napisało powieść. Każdy bohater krzyczy czemóóó.','🏛️ Świątynia Płocka ogłasza Zahara nowym patronem miasta.','💀 Po rebirthu Zahar stał się niezatapialny. Psycholodzy badają.','🌑 Czarna dziura memów wykryta przy ul. Szerokiej 5.','⚗️ Laboratorium wirali otwarte ponownie. Produktywność: nieskończona.','🌌 Wymiar TikToka potwierdzony przez fizyków kwantowych z PW.','🔮 Babcia Zahara przepowiedziała Boskie Kliknięcie w 2019. Nikt nie wierzył.','🎮 Cookie Clicker tweetuje: "Jesteś lepszy niż my". Zahar nie odpowiada.','🏅 Nobel Prize for Meme Physics przyznany Zaharowi. Odbiera z Płocka.','🌐 Imperium Zahara obejmuje 47 krajów. HQ: Płock, ul. Tumska 12.','🌀 Zahar otworzył portal do alternatywnego Płocka. Podatki te same.','🕊️ Boski Serwer Zahara ma lepszy uptime niż Azure. Microsoft płacze.','⏳ Maszyna czasu Zahara utknęła w 2016. Był tam już rok temu.','🧬 WHO ogłasza memetyczną pandemię. Nikt się nie skarży.','💚 Zahar spożył czerwoną tabletkę. Wciąż klika. Matrix bez zmian.','💤 Zahar klika we śnie. His CPS jest wyższy niż twój na jawie.','🫥 Zahar wszedł w Pustkę Memów. Memy tam pierwsze.','♾️ Multiwersum Zahara: wszystkie wersje klikają. Jedna się ociąga.','🧠 AGI opracowana w Płocku. Jedyna myśl: klika memy.','📡 Sygnał z Zahara dotarł do Alpha Centauri. Odpowiedź: czemóóó.'];
 
 const MEMES=[{l:'płakał',s:'plakal.jpeg',snd:'snd_plakal'},{l:'tortą',s:'torta.jpeg',snd:'snd_torta'},{l:'Z Płocka jestem',s:'plock.jpeg',snd:'snd_plock'},{l:'czemóóó',s:'czemooo.jpeg',snd:'snd_czemooo'}];
 
 const WORLDS=[
-  {id:'plock',   n:'Płock',           ic:'🌍',d:'Twoje miasto. Skromne początki.',      lore:'Tu wszystko się zaczęło. Wisła, ul. Tumska, ciotka Halina i jej WhatsApp.',             rbReq:0,  mx:1,   css:{pu:'#9b5cff',pk:'#ff2d78',bl:'#2de0ff',bg:'#08080f'}},
-  {id:'warsaw',  n:'Warszawa',         ic:'🏙️',d:'Stolica. Drożej, szybciej, więcej.',  lore:'Po 1 rebirthu Zahar wyruszył na podbój stolicy. PKiN wyglądał jak wieża z memów.',    rbReq:1,  mx:2,   css:{pu:'#3d7bff',pk:'#ff7b2d',bl:'#2dffcc',bg:'#06080f'}},
+  {id:'plock',   n:'Płock',           ic:'🌍',d:'Twoje miasto. Skromne początki.',    lore:'Tu wszystko się zaczęło. Wisła, ul. Tumska, ciotka Halina i jej WhatsApp.',             rbReq:0,  mx:1,   css:{pu:'#9b5cff',pk:'#ff2d78',bl:'#2de0ff',bg:'#08080f'}},
+  {id:'warsaw',  n:'Warszawa',         ic:'🏙️',d:'Stolica. Drożej, szybciej, więcej.', lore:'Po 1 rebirthu Zahar wyruszył na podbój stolicy. PKiN wyglądał jak wieża z memów.',    rbReq:1,  mx:2,   css:{pu:'#3d7bff',pk:'#ff7b2d',bl:'#2dffcc',bg:'#06080f'}},
   {id:'tiktok',  n:'Wymiar TikToka',  ic:'📲',d:'Rzeczywistość składa się z memów.',   lore:'Zahar wpadł w spiralę TikToka na 3 tygodnie i odkrył Wymiar gdzie kliknięcia są wieczne.',rbReq:3,mx:5,   css:{pu:'#dd44ff',pk:'#ff44aa',bl:'#ff44ee',bg:'#0f0812'}},
-  {id:'hell',    n:'Memowe Piekło',   ic:'🔥',d:'Płomienie wirali. Memy płoną wiecznie.',lore:'Zahar przeszedł przez ogień i wyszedł z pełnym HP. Piekło wypełnione memami z 2016.',  rbReq:7,  mx:20,  css:{pu:'#ff7700',pk:'#ff2200',bl:'#ffaa00',bg:'#0f0400'}},
+  {id:'hell',    n:'Memowe Piekło',  ic:'🔥',d:'Płomienie wirali. Memy płoną wiecznie.',lore:'Zahar przeszedł przez ogień i wyszedł z pełnym HP. Piekło wypełnione memami z 2016.',   rbReq:7,  mx:20,  css:{pu:'#ff7700',pk:'#ff2200',bl:'#ffaa00',bg:'#0f0400'}},
   {id:'cosmos',  n:'Kosmiczny Płock', ic:'🌌',d:'Płock w kosmosie. Klikasz w gwiazdy.',lore:'NASA zaprosiło Zahara na ISS. Odrzucił. Zamiast tego zbudował własną stację w piwnicy.',  rbReq:12, mx:60,  css:{pu:'#5c3fff',pk:'#a020f0',bl:'#4488ff',bg:'#030510'}},
-  {id:'heaven',  n:'Niebo Memów',     ic:'✨',d:'Transcendencja. Sam jesteś memem.',    lore:'Na 20. rebirthu Zahar odkrył że sam jest memem. Boskie Kliknięcie stało się jego duszą.',rbReq:20, mx:200, css:{pu:'#ffe94a',pk:'#fff0aa',bl:'#fffff0',bg:'#07070d'}},
-  {id:'matrix',  n:'Matrix Płocka',  ic:'💚',d:'Zielony kod spada z nieba.',             lore:'Zahar wziął czerwoną tabletkę. Okazało się że Płock to symulacja. I tak klika dalej.',  rbReq:30, mx:500, css:{pu:'#00ff44',pk:'#00cc33',bl:'#44ff88',bg:'#000a03'}},
-  {id:'dream',   n:'Sen Zahara',     ic:'💤',d:'Śni i klika w tym samym czasie.',        lore:'Zahar nauczył się klikać we śnie. Jego sen jest teraz produktywniejszy niż twój dzień.',  rbReq:42, mx:1000,css:{pu:'#aa88ff',pk:'#ff88cc',bl:'#88ccff',bg:'#05030f'}},
-  {id:'void',    n:'Pustka Memów',   ic:'🫥',d:'Brak wszystkiego. A jednak klikasz.',   lore:'Poza czasem, przestrzenią i Płockiem. Tylko Zahar, kursor i cisza. I CPS 10 miliardów.',rbReq:60, mx:5000,css:{pu:'#aaaaaa',pk:'#888888',bl:'#cccccc',bg:'#010101'}},
+  {id:'heaven',  n:'Niebo Memów',       ic:'✨',d:'Transcendencja. Sam jesteś memem.',    lore:'Na 20. rebirthu Zahar odkrył że sam jest memem. Boskie Kliknięcie stało się jego duszą.',rbReq:20, mx:200, css:{pu:'#ffe94a',pk:'#fff0aa',bl:'#fffff0',bg:'#07070d'}},
+  {id:'matrix',  n:'Matrix Płocka',  ic:'💚',d:'Zielony kod spada z nieba.',              lore:'Zahar wziął czerwoną tabletkę. Okazało się że Płock to symulacja. I tak klika dalej.',  rbReq:30, mx:500, css:{pu:'#00ff44',pk:'#00cc33',bl:'#44ff88',bg:'#000a03'}},
+  {id:'dream',   n:'Sen Zahara',      ic:'💤',d:'Śni i klika w tym samym czasie.',        lore:'Zahar nauczył się klikać we śnie. Jego sen jest teraz produktywniejszy niż twój dzień.',  rbReq:42, mx:1000,css:{pu:'#aa88ff',pk:'#ff88cc',bl:'#88ccff',bg:'#05030f'}},
+  {id:'void',    n:'Pustka Memów',    ic:'🫥',d:'Brak wszystkiego. A jednak klikasz.',   lore:'Poza czasem, przestrzenią i Płockiem. Tylko Zahar, kursor i cisza. I CPS 10 miliardów.',rbReq:60, mx:5000,css:{pu:'#aaaaaa',pk:'#888888',bl:'#cccccc',bg:'#010101'}},
   {id:'rebirth', n:'Świat Odrodzenia',ic:'♻️',d:'Każdy rebirth dodaje wymiarów.',       lore:'Zahar przetasował całą rzeczywistość. Każde odrodzenie to nowy wszechświat. Klika we wszystkich.',rbReq:80,mx:20000,css:{pu:'#ff5500',pk:'#ffaa00',bl:'#00ffdd',bg:'#080408'}},
 ];
 
 const BUILDINGS=[
-  {id:'cur',  ic:'☝️', n:'Turbo Palec',      d:'Sam klika za Ciebie.',             lore:'Zahar był zbyt leniwy więc wynalazł autokliker. Palec klika bez jego wiedzy.',              bc:15,        o:0,cps:.1},
-  {id:'cio',  ic:'👵', n:'Ciotka z Płocka',  d:'Wysyła memy 24/7.',                lore:'Ciotka Halina, 67 lat, ul. Tumska 12. Wysyła memy zanim staną się memami.',               bc:100,       o:0,cps:.5},
-  {id:'scr',  ic:'📱', n:'Auto-Scroll',       d:'TikTok scrolluje się sam.',         lore:'Zahar zasnął z telefonem. TikTok nauczył się scrollować bez niego. AI senności.',         bc:500,       o:0,cps:4},
-  {id:'mfm',  ic:'🏭', n:'Fabryka Memów',    d:'Produkuje memy non-stop.',          lore:'Stara hala po Petrochemii Płock. 15 memów/s. PKN Orlen jest zazdrosny.',                  bc:2000,      o:0,cps:15},
-  {id:'fyp',  ic:'🚀', n:'FYP Machine',      d:'Twoje memy zawsze na FYP.',         lore:'Zahar zapłacił 420 duszkami za root access do serwera TikToka. ByteDance szuka go.',      bc:8000,      o:0,cps:50},
-  {id:'plcz', ic:'😭', n:'Zakład Płakania',  d:'Płakacze generują kliknięcia łzami.',lore:'Po sukcesie plakal.jpeg Zahar zatrudnił 47 profesjonalnych płakaczy na etacie.',          bc:25000,     o:0,cps:120},
-  {id:'bcli', ic:'🌌', n:'Boskie Kliknięcie',d:'Kliknięcie przetwarza rzeczywistość.',lore:'Legenda głosi że pierwsze Boskie Kliknięcie stworzyło Płock. PW to potwierdza.',        bc:100000,    o:0,cps:400},
-  {id:'ai',   ic:'🤖', n:'AI Memer',         d:'GPT-∞ tworzy memy autonomicznie.',  lore:'AI nauczyło się co to czemóóó bez treningu. Teraz nie można jej niczego innego nauczyć.',bc:400000,    o:0,cps:1200},
-  {id:'swt',  ic:'🏛️', n:'Świątynia Płocka', d:'Pielgrzymi klikają dla Zahara.',    lore:'Katedra Płocka przerobiona na Świątynię Klikania. Biskupi zostali moderatorami.',        bc:2000000,   o:0,cps:5000},
-  {id:'imp',  ic:'🌐', n:'Memowe Imperium',  d:'Cały internet na Twoje rozkazy.',   lore:'Zahar przejął Google, Meta i TikTok w jeden weekend. SEC go szuka w Płocku.',            bc:15000000,  o:0,cps:20000},
+  {id:'cur',  ic:'☝️', n:'Turbo Palec',       d:'Sam klika za Ciebie.',              lore:'Zahar był zbyt leniwy więc wynalazł autokliker. Palec klika bez jego wiedzy.',             bc:15,        o:0,cps:.1},
+  {id:'cio',  ic:'👵', n:'Ciotka z Płocka',   d:'Wysyła memy 24/7.',                 lore:'Ciotka Halina, 67 lat, ul. Tumska 12. Wysyła memy zanim staną się memami.',                bc:100,       o:0,cps:.5},
+  {id:'scr',  ic:'📱', n:'Auto-Scroll',        d:'TikTok scrolluje się sam.',          lore:'Zahar zasnął z telefonem. TikTok nauczył się scrollować bez niego. AI senności.',          bc:500,       o:0,cps:4},
+  {id:'mfm',  ic:'🏭', n:'Fabryka Memów',     d:'Produkuje memy non-stop.',           lore:'Stara hala po Petrochemii Płock. 15 memów/s. PKN Orlen jest zazdrosny.',                   bc:2000,      o:0,cps:15},
+  {id:'fyp',  ic:'🚀', n:'FYP Machine',       d:'Twoje memy zawsze na FYP.',          lore:'Zahar zapłacił 420 duszkami za root access do serwera TikToka. ByteDance szuka go.',       bc:8000,      o:0,cps:50},
+  {id:'plcz', ic:'😭', n:'Zakład Płakania',   d:'Płakacze generują kliknięcia łzami.',lore:'Po sukcesie plakal.jpeg Zahar zatrudnił 47 profesjonalnych płakaczy na etacie.',           bc:25000,     o:0,cps:120},
+  {id:'bcli', ic:'🌌', n:'Boskie Kliknięcie',d:'Kliknięcie przetwarza rzeczywistość.',lore:'Legenda głosi że pierwsze Boskie Kliknięcie stworzyło Płock. PW to potwierdza.',         bc:100000,    o:0,cps:400},
+  {id:'ai',   ic:'🤖', n:'AI Memer',          d:'GPT-∞ tworzy memy autonomicznie.',   lore:'AI nauczyło się co to czemóóó bez treningu. Teraz nie można jej niczego innego nauczyć.',bc:400000,    o:0,cps:1200},
+  {id:'swt',  ic:'🏛️', n:'Świątynia Płocka', d:'Pielgrzymi klikają dla Zahara.',     lore:'Katedra Płocka przerobiona na Świątynią Klikania. Biskupi zostali moderatorami.',        bc:2000000,   o:0,cps:5000},
+  {id:'imp',  ic:'🌐', n:'Memowe Imperium',   d:'Cały internet na Twoje rozkazy.',    lore:'Zahar przejął Google, Meta i TikTok w jeden weekend. SEC go szuka w Płocku.',            bc:15000000,  o:0,cps:20000},
   {id:'lab',  ic:'⚗️', n:'Lab Wirali',       d:'Wirusy memowe w kontrolowanych war.',lore:'CERN odmówiło. Zahar zbudował własny synchrotron memów w piwnicy rodziców.',             bc:100000000, o:0,cps:100000},
-  {id:'blk',  ic:'🌑', n:'Czarna Dziura',    d:'Pochłania całe internety.',          lore:'Hawking mówił że to niemożliwe. Zahar zrobił to w tydzień. 500k memów na sekundę.',       bc:1e9,       o:0,cps:500000},
-  {id:'mlt',  ic:'🌀', n:'Multiwersum',      d:'Nieskończone wersje Płocka klikają.',lore:'Zahar odkrył że w każdym wszechświecie istnieje kopia siebie. Wszystkie klikają razem.',    bc:8e9,       o:0,cps:2000000},
-  {id:'god',  ic:'🕊️', n:'Boski Serwer',    d:'Chmura obliczeniowa nad chmurami.', lore:'Zahar wynajął serwer od samego Boga. Ping: 0ms. SLA: nieskończoność. Koszty: 1 duszka/rok.',bc:75e9,      o:0,cps:10000000},
-  {id:'tim',  ic:'⏳', n:'Maszyna Czasu',    d:'Klika w przeszłości i przyszłości.',lore:'Zahar cofnął się do 2016 żeby dać sobie wskazówki. Zahar z 2016 go wyśmiał. A jednak.',     bc:800e9,     o:0,cps:50000000},
-  {id:'mem',  ic:'🧬', n:'Memetyczna Bomba', d:'Mem rozkłada się na czyste kliknięcia.',lore:'Ostateczna broń. Jeden mem dzieli się na 100 miliardów kliknięć. CERN tego zakazał.', bc:1e13,      o:0,cps:300000000},
-  {id:'arc',  ic:'🏦', n:'Bank Klików',      d:'Odsetki od każdego kliknięcia.',      lore:'Płock otworzył bank, gdzie lokatą jest ból palca. Oprocentowanie absurdalne.',              bc:8e13,      o:0,cps:1.2e9},
-  {id:'omn',  ic:'👁️', n:'Omni-Feed',        d:'Każdy ekran pokazuje Twój mem.',     lore:'Telefon, lodówka, parkomat. Wszystko wyświetla Zahara i każdy ekran nalicza kliknięcia.',     bc:7e14,      o:0,cps:6e9},
-  {id:'qnt',  ic:'⚛️', n:'Reaktor Kwantowy', d:'Kliknięcia z możliwych wszechświatów.',lore:'Reaktor liczy kliknięcia, które mogły się wydarzyć. Księgowa mówi, że to legalne.',        bc:9e15,      o:0,cps:4e10},
-  {id:'abs',  ic:'♾️', n:'Absolut Memów',    d:'Memy tworzą nowe prawa fizyki.',     lore:'Nie kupujesz budynku. Kupujesz zasadę wszechświata: wszystko ostatecznie staje się memem.',    bc:2e17,      o:0,cps:3e11},
+  {id:'blk',  ic:'🌑', n:'Czarna Dziura',     d:'Pochłania całe internety.',          lore:'Hawking mówił że to niemożliwe. Zahar zrobił to w tydzień. 500k memów na sekundę.',       bc:1e9,       o:0,cps:500000},
+  {id:'mlt',  ic:'🌀', n:'Multiwersum',       d:'Nieskończone wersje Płocka klikają.',lore:'Zahar odkrył że w każdym wszechświecie istnieje kopia siebie. Wszystkie klikają razem.',     bc:8e9,       o:0,cps:2000000},
+  {id:'god',  ic:'🕊️', n:'Boski Serwer',     d:'Chmura obliczeniowa nad chmurami.', lore:'Zahar wynajął serwer od samego Boga. Ping: 0ms. SLA: nieskończoność. Koszty: 1 duszka/rok.',bc:75e9,      o:0,cps:10000000},
+  {id:'tim',  ic:'⏳', n:'Maszyna Czasu',    d:'Klika w przeszłości i przyszłości.', lore:'Zahar manipuluje linią czasu Płocka, zbierając kliki z jutra już wczoraj.',          bc:500e9,     o:0,cps:65000000}
 ];
 
 const UPGRADES=[
-  // click mult
-  {id:'ck1',cat:'⚡ Klik',ic:'💪',n:'Lepszy Palec',     d:'Zahar ćwiczył palec 3 miesiące na siłce przy Tumskiej.',  eff:'×2 za klik',  cost:100,    o:false,t:'cm',v:2,   req:()=>atc>=10},
-  {id:'ck2',cat:'⚡ Klik',ic:'🧤',n:'Rękawica Płocka',  d:'Lokalnie robiona w szwalni. Gwarancja 3 lata z Biedronki.',eff:'×2 za klik',  cost:500,    o:false,t:'cm',v:2,   req:()=>atc>=100},
-  {id:'ck3',cat:'⚡ Klik',ic:'⚡',n:'Elektryczny Palec', d:'Wypadek z ładowarką. Palec teraz generuje prąd.',          eff:'×3 za klik',  cost:3000,   o:false,t:'cm',v:3,   req:()=>atc>=500},
-  {id:'ck4',cat:'⚡ Klik',ic:'☢️',n:'Palec Atomowy',     d:'ORLEN sponsoruje. 12% paliw jądrowych Płocka.',            eff:'×5 za klik',  cost:15000,  o:false,t:'cm',v:5,   req:()=>atc>=5000},
-  {id:'ck5',cat:'⚡ Klik',ic:'👁️',n:'Trzecie Oko',       d:'Klikasz wzrokiem. Budda potwierdził metodę na Discordzie.',eff:'×10 za klik', cost:80000,  o:false,t:'cm',v:10,  req:()=>atc>=25000},
-  {id:'ck6',cat:'⚡ Klik',ic:'🌟',n:'Boskie Dotknięcie', d:'Kliknięcie to akt woli kosmicznej.',                       eff:'×25 za klik', cost:500000, o:false,t:'cm',v:25,  req:()=>atc>=100000},
-  {id:'ck7',cat:'⚡ Klik',ic:'♾️',n:'Palec Nieskończony',d:'Klika we wszystkich timeline jednocześnie.',               eff:'×50 za klik', cost:5e6,    o:false,t:'cm',v:50,  req:()=>atc>=1e6},
-  {id:'ck8',cat:'⚡ Klik',ic:'🌀',n:'Kwantowy Palec',   d:'Superpozycja: klika i nie klika naraz. Klika.',            eff:'×100 za klik',cost:25e6,   o:false,t:'cm',v:100, req:()=>atc>=5e6},
-  // click flat
-  {id:'cf1',cat:'⚡ Klik',ic:'🤡',n:'Combo Czemóóó',     d:'Czemóóó aktywuje sekretny tryb klikania.',                 eff:'+50 za klik', cost:750,    o:false,t:'cf',v:50,  req:()=>atc>=200},
-  {id:'cf2',cat:'⚡ Klik',ic:'🍰',n:'Tort Power',         d:'Tortem w ekran. Nieoczekiwanie działa.',                   eff:'+200 za klik',cost:5000,   o:false,t:'cf',v:200, req:()=>atc>=1000},
-  {id:'cf3',cat:'⚡ Klik',ic:'😭',n:'Płockie Łzy',        d:'Każda łza plakal.jpeg = kliknięcie. GDPR nie obowiązuje.', eff:'+500 za klik',cost:30000,  o:false,t:'cf',v:500, req:()=>atc>=10000},
-  {id:'cf4',cat:'⚡ Klik',ic:'🌊',n:'Wisła Surge',        d:'Powódź memów z roku 79. Historyczna moc wraca.',           eff:'+2k za klik', cost:200000, o:false,t:'cf',v:2000,req:()=>atc>=75000},
-  {id:'cf5',cat:'⚡ Klik',ic:'🔱',n:'Trójząb Płocka',    d:'Tajny trójząb znaleziony pod ul. Szeroka 5.',              eff:'+10k za klik',cost:2e6,    o:false,t:'cf',v:10000,req:()=>atc>=500000},
-  // cps mult
-  {id:'cp1',cat:'🔄 Auto',ic:'📡',n:'Płocki Internet',   d:'Światłowód dotarł do Płocka. Był rok 2024. Wreszcie.',     eff:'×2 CPS',     cost:200,    o:false,t:'csm',v:2, req:()=>go('cur')>=1},
-  {id:'cp2',cat:'🔄 Auto',ic:'🧠',n:'AI Ciotki',          d:'ChatGPT przejął WhatsApp ciotki Haliny. Meming 24/7.',    eff:'×2 CPS',     cost:1500,   o:false,t:'csm',v:2, req:()=>go('cio')>=5},
-  {id:'cp3',cat:'🔄 Auto',ic:'🔥',n:'Viral Protocol',     d:'Każdy mem auto-viral. Zuckerberg płacze.',                 eff:'×3 CPS',     cost:10000,  o:false,t:'csm',v:3, req:()=>go('fyp')>=3},
-  {id:'cp4',cat:'🔄 Auto',ic:'🌊',n:'Memowe Tsunami',     d:'Memy zalewają internet jak Wisła w 1979.',                 eff:'×4 CPS',     cost:50000,  o:false,t:'csm',v:4, req:()=>go('mfm')>=10},
-  {id:'cp5',cat:'🔄 Auto',ic:'🏅',n:'Złota Rączka',       d:'Urząd Gminy Płock certyfikuje Twoją rękę.',               eff:'×2 CPS',     cost:200000, o:false,t:'csm',v:2, req:()=>atc>=100000},
-  {id:'cp6',cat:'🔄 Auto',ic:'🚀',n:'Hypersonic Scroll',  d:'TikTok pęka z prędkości. ByteDance wysyła prawników.',    eff:'×5 CPS',     cost:1e6,    o:false,t:'csm',v:5, req:()=>go('lab')>=3},
-  {id:'cp7',cat:'🔄 Auto',ic:'🌌',n:'Singularność Memów', d:'Memy zaczynają tworzyć siebie samodzielnie.',              eff:'×10 CPS',    cost:10e6,   o:false,t:'csm',v:10,req:()=>go('blk')>=1},
-  {id:'cp8',cat:'🔄 Auto',ic:'🔮',n:'Proroctwo Babci',   d:'Babcia wiedziała. Wszyscy się śmiali. Błąd.',              eff:'×25 CPS',    cost:100e6,  o:false,t:'csm',v:25,req:()=>go('blk')>=10},
-  // building specific
-  {id:'bc1',cat:'☝️ Palec',ic:'☝️',n:'Naoliwiony Palec',  d:'Oliwa z Biedronki. Trzecia jakość. Działa.',               eff:'Palec ×2',   cost:200,    o:false,t:'bm',bid:'cur',v:2, req:()=>go('cur')>=5},
-  {id:'bc2',cat:'☝️ Palec',ic:'🖖',n:'Podwójny Palec',   d:'Zahar zakleił dwa palce razem. Podwójna moc.',              eff:'Palec ×4',   cost:5000,   o:false,t:'bm',bid:'cur',v:4, req:()=>go('cur')>=25},
-  {id:'bc3',cat:'☝️ Palec',ic:'🤚',n:'Cała Dłoń',         d:'Po co palec? Cała ręka.',                                   eff:'Palec ×10',  cost:100000, o:false,t:'bm',bid:'cur',v:10,req:()=>go('cur')>=100},
-  {id:'bc4',cat:'☝️ Palec',ic:'🦾',n:'Cyberpalec 3000',   d:'Implant od firmy z Płocka. FDA nie zatwierdziła.',          eff:'Palec ×25',  cost:5e6,    o:false,t:'bm',bid:'cur',v:25,req:()=>go('cur')>=250},
-  {id:'bi1',cat:'👵 Ciotka',ic:'📲',n:'Nowy Telefon Ciotki',d:'Samsung A55. Ciotka 2x szybsza.',                          eff:'Ciotka ×2',  cost:2000,   o:false,t:'bm',bid:'cio',v:2, req:()=>go('cio')>=5},
-  {id:'bi2',cat:'👵 Ciotka',ic:'👨‍👩‍👧‍👦',n:'Cała Ul. Tumska',  d:'47 sąsiadów klika razem.',                                    eff:'Ciotka ×4',  cost:25000,  o:false,t:'bm',bid:'cio',v:4, req:()=>go('cio')>=25},
-  {id:'bi3',cat:'👵 Ciotka',ic:'🎓',n:'Ciotka Influencer', d:'2M followers. Kolaboracja z Zahar_Official.',               eff:'Ciotka ×10', cost:500000, o:false,t:'bm',bid:'cio',v:10,req:()=>go('cio')>=100},
-  {id:'bs1',cat:'📱 Scroll',ic:'📶',n:'5G Scrollowanie',   d:'Orange Polska sponsoruje internet Zahara.',                 eff:'Scroll ×3',  cost:5000,   o:false,t:'bm',bid:'scr',v:3, req:()=>go('scr')>=5},
-  {id:'bs2',cat:'📱 Scroll',ic:'📡',n:'Satelitarny Scroll',d:'Starlink nad Płockiem. Elon tego nie planował.',            eff:'Scroll ×6',  cost:80000,  o:false,t:'bm',bid:'scr',v:6, req:()=>go('scr')>=25},
-  {id:'bs3',cat:'📱 Scroll',ic:'🌐',n:'Kwantowy Scroll',   d:'Scrolluje w przeszłości i przyszłości jednocześnie.',      eff:'Scroll ×15', cost:2e6,    o:false,t:'bm',bid:'scr',v:15,req:()=>go('scr')>=100},
-  {id:'bm1',cat:'🏭 Fabryka',ic:'🏭',n:'Linia Montażowa',  d:'Nowe taśmy produkcyjne. Made in Płock.',                   eff:'Fabryka ×3', cost:20000,  o:false,t:'bm',bid:'mfm',v:3, req:()=>go('mfm')>=5},
-  {id:'bm2',cat:'🏭 Fabryka',ic:'⚙️',n:'Automatyzacja',    d:'Roboty przejęły produkcję. Pracownicy awansowali.',         eff:'Fabryka ×6', cost:400000, o:false,t:'bm',bid:'mfm',v:6, req:()=>go('mfm')>=25},
-  {id:'bf1',cat:'🚀 FYP',   ic:'🎯',n:'Targeting V2',      d:'Root access do algorytmu rekomendacji.',                   eff:'FYP ×4',     cost:50000,  o:false,t:'bm',bid:'fyp',v:4, req:()=>go('fyp')>=5},
-  {id:'bf2',cat:'🚀 FYP',   ic:'💫',n:'God Mode FYP',      d:'Każdy film globalnie viral. TikTok płacze.',               eff:'FYP ×8',     cost:500000, o:false,t:'bm',bid:'fyp',v:8, req:()=>go('fyp')>=25},
-  {id:'bf3',cat:'🚀 FYP',   ic:'🌌',n:'Quantum FYP',       d:'Film widziany przed nagraniem. Chronologia to mit.',       eff:'FYP ×20',    cost:10e6,   o:false,t:'bm',bid:'fyp',v:20,req:()=>go('fyp')>=100},
-  {id:'ba1',cat:'🤖 AI',    ic:'🧬',n:'GPT-Meme',          d:'Model wytrenowany wyłącznie na memach Zahara.',            eff:'AI ×4',      cost:1e6,    o:false,t:'bm',bid:'ai', v:4, req:()=>go('ai')>=5},
-  {id:'ba2',cat:'🤖 AI',    ic:'🌐',n:'AI Kolektyw',       d:'1000 AI pracuje razem. Skynet memów.',                     eff:'AI ×10',     cost:20e6,   o:false,t:'bm',bid:'ai', v:10,req:()=>go('ai')>=25},
-  {id:'bw1',cat:'🏛️ Świąt.',ic:'🙏',n:'Nowi Wyznawcy',    d:'Influencerzy pielgrzymują do Płocka.',                     eff:'Świąt. ×5',  cost:5e6,    o:false,t:'bm',bid:'swt',v:5, req:()=>go('swt')>=5},
-  {id:'bw2',cat:'🏛️ Świąt.',ic:'⛪',n:'Kościół Klikania', d:'Watykański oddział memów. Papież to zatwierdził.',         eff:'Świąt. ×12', cost:50e6,   o:false,t:'bm',bid:'swt',v:12,req:()=>go('swt')>=25},
-  {id:'bl1',cat:'⚗️ Lab',   ic:'🔬',n:'Kultura Wirusowa',  d:'Memy hodowane w kulturach tkankowych. Biologia potwierdza.',eff:'Lab ×8',    cost:1e9,    o:false,t:'bm',bid:'lab',v:8, req:()=>go('lab')>=5},
-  {id:'bb1',cat:'🌑 B.Dziura',ic:'🌑',n:'Hawking Upgrade', d:'Ostatnia praca Hawkinga: jak usprawnić czarną dziurę.',    eff:'B.Dziura ×10',cost:10e9,  o:false,t:'bm',bid:'blk',v:10,req:()=>go('blk')>=5},
-  // global
-  {id:'g1',cat:'🌍 Global', ic:'♾️',n:'Transcendencja',    d:'Płock transcenduje do wyższego wymiaru.',                  eff:'×2 wszystko',cost:200000, o:false,t:'am',v:2,  req:()=>atc>=100000},
-  {id:'g2',cat:'🌍 Global', ic:'🌌',n:'Kosmiczny Wymiar',  d:'Zahar otworzył portal do wymiaru memów.',                 eff:'×5 wszystko',cost:5e6,    o:false,t:'am',v:5,  req:()=>atc>=1e6},
-  {id:'g3',cat:'🌍 Global', ic:'🔮',n:'Proroctwo Zahara',  d:'Babcia przepowiedziała. Nikt nie wierzył. Miała rację.',  eff:'×10 wszystko',cost:50e6,  o:false,t:'am',v:10, req:()=>atc>=10e6},
-  {id:'g4',cat:'🌍 Global', ic:'🌈',n:'Memowe Odrodzenie', d:'Rebirth wzmacnia wszystko. Historia się powtarza lepiej.',eff:'×(rb+1) wszy.',cost:1e6,  o:false,t:'rbm',v:1, req:()=>rbs>=1},
-  {id:'g5',cat:'🌍 Global', ic:'💥',n:'Big Bang Płocka',   d:'Nowy Big Bang. Zahar nacisnął przycisk.',                 eff:'×50 wszystko',cost:500e6, o:false,t:'am',v:50, req:()=>atc>=100e6},
-  // even more click
-  {id:'ck9', cat:'⚡ Klik',ic:'🧿',n:'Oko Zahara',         d:'Jeden wzrok = tysiące kliknięć. Okulista szokowany.',      eff:'×200 za klik',cost:200e6,  o:false,t:'cm',v:200,  req:()=>atc>=50e6},
-  {id:'ck10',cat:'⚡ Klik',ic:'🫀',n:'Klikające Serce',    d:'Każde bicie serca = kliknięcie. Kardiolog zachwycony.',    eff:'×500 za klik',cost:2e9,    o:false,t:'cm',v:500,  req:()=>atc>=500e6},
-  // more click flat
-  {id:'cf6',cat:'⚡ Klik',ic:'🌋',n:'Erupcja Płocka',      d:'Wulkan memów wybucha pod ul. Tumską.',                     eff:'+50k za klik', cost:20e6,   o:false,t:'cf',v:50000,req:()=>atc>=5e6},
-  {id:'cf7',cat:'⚡ Klik',ic:'💣',n:'Mema Bomba',          d:'Jeden klik eksploduje w milion. Bezpieczne w domu.',       eff:'+500k za klik',cost:500e6,  o:false,t:'cf',v:500000,req:()=>atc>=100e6},
-  // more CPS
-  {id:'cp9', cat:'🔄 Auto',ic:'🛸',n:'UFO z Płocka',       d:'Kosmici odwiedzili Płock. Pożyczyli swój autokliker.',     eff:'×20 CPS',     cost:500e6,  o:false,t:'csm',v:20, req:()=>go('mlt')>=1},
-  {id:'cp10',cat:'🔄 Auto',ic:'🌊',n:'Kwantowa Piana',     d:'Kliknięcia pianą kwantową pokrywają wszechświat.',        eff:'×50 CPS',     cost:10e9,   o:false,t:'csm',v:50, req:()=>go('god')>=3},
-  // new building upgrades
-  {id:'bml1',cat:'🌀 Multi', ic:'🌀',n:'Drugi Zahar',       d:'Klon Zahara w sąsiednim wszechświecie pracuje dla Ciebie.',eff:'Multiwers ×6', cost:100e9,  o:false,t:'bm',bid:'mlt',v:6,  req:()=>go('mlt')>=5},
-  {id:'bml2',cat:'🌀 Multi', ic:'♾️',n:'Nieskończone Kopie',d:'Zahar w każdym wszechświecie. Konferencja nie do zaplanowania.',eff:'Multiwers ×15',cost:5e12,o:false,t:'bm',bid:'mlt',v:15, req:()=>go('mlt')>=25},
-  {id:'bg1', cat:'🕊️ Serwer',ic:'☁️',n:'Boska Przepustowość',d:'Upgrade łącza do Boga. 100 Tbps. Boskie.',              eff:'Serwer ×8',   cost:1e12,   o:false,t:'bm',bid:'god',v:8,  req:()=>go('god')>=5},
-  {id:'bg2', cat:'🕊️ Serwer',ic:'🌟',n:'Aniołowie Devopsi', d:'Cherubiny prowadzą CI/CD dla Zahara. Uptime 100%.',       eff:'Serwer ×20',  cost:100e12, o:false,t:'bm',bid:'god',v:20, req:()=>go('god')>=25},
-  {id:'bt1', cat:'⏳ Czas',  ic:'⏰',n:'Pętla Czasowa',     d:'Ten sam klik zapętlony do nieskończoności.',              eff:'Czas ×10',    cost:10e12,  o:false,t:'bm',bid:'tim',v:10, req:()=>go('tim')>=5},
-  {id:'bt2', cat:'⏳ Czas',  ic:'🔁',n:'Paradoks Zahara',   d:'Zahar spotkał siebie z przyszłości. Obaj klikają.',       eff:'Czas ×30',    cost:1e15,   o:false,t:'bm',bid:'tim',v:30, req:()=>go('tim')>=25},
-  {id:'bmm1',cat:'🧬 Bomba', ic:'💊',n:'Memetyczna Szczepionka',d:'Szczepionka wzmacnia memy zamiast ich tłumić. CDC: co?',eff:'Bomba ×12',  cost:100e12, o:false,t:'bm',bid:'mem',v:12, req:()=>go('mem')>=5},
-  {id:'bmm2',cat:'🧬 Bomba', ic:'🌐',n:'Globalna Pandemia Memów',d:'WHO ogłasza stan memowy. Nikomu nie przeszkadza.',    eff:'Bomba ×50',  cost:50e15,  o:false,t:'bm',bid:'mem',v:50, req:()=>go('mem')>=25},
-  // global end-game
-  {id:'g6',cat:'🌍 Global', ic:'🧠',n:'Memowa Superinteligencja',d:'AI połączyła wszystkie memy w jedną wielką myśl.',    eff:'×100 wszystko',cost:10e9, o:false,t:'am',v:100,req:()=>atc>=1e9},
-  {id:'g7',cat:'🌍 Global', ic:'🌌',n:'Teoria Wszystkich Memów',d:'Fizycy z PW odkryli że memy są fundamentem rzeczywistości.',eff:'×500 wszystko',cost:500e9,o:false,t:'am',v:500,req:()=>atc>=100e9},
-  {id:'g8',cat:'🌍 Global', ic:'🕳️',n:'Singularność Zahara',  d:'Zahar i memy zlały się w jedno. Nie ma już różnicy.',    eff:'×5000 wszystko',cost:100e12,o:false,t:'am',v:5000,req:()=>atc>=1e12},
-  {id:'bnk1',cat:'🏦 Bank',ic:'💳',n:'Karta Premium',d:'Każdy klik ma cashback. Kapitalizm odkrył memy.',eff:'Bank ×8',cost:2e15,o:false,t:'bm',bid:'arc',v:8,req:()=>go('arc')>=5},
-  {id:'bnk2',cat:'🏦 Bank',ic:'📈',n:'Giełda Klików',d:'Kliknięcia idą na giełdę. Wszyscy kupują dip.',eff:'Bank ×25',cost:80e15,o:false,t:'bm',bid:'arc',v:25,req:()=>go('arc')>=25},
-  {id:'omn1',cat:'👁️ Feed',ic:'📺',n:'Ekrany Publiczne',d:'Każdy przystanek w Płocku streamuje mema.',eff:'Omni ×10',cost:15e15,o:false,t:'bm',bid:'omn',v:10,req:()=>go('omn')>=5},
-  {id:'omn2',cat:'👁️ Feed',ic:'🛰️',n:'Orbitalny Feed',d:'Satelity nadają czemóóó w każdą stronę.',eff:'Omni ×35',cost:500e15,o:false,t:'bm',bid:'omn',v:35,req:()=>go('omn')>=25},
-  {id:'qnt1',cat:'⚛️ Kwant',ic:'🧪',n:'Stabilne Kwanty',d:'Kliknięcia przestały znikać w niebycie.',eff:'Reaktor ×12',cost:150e15,o:false,t:'bm',bid:'qnt',v:12,req:()=>go('qnt')>=5},
-  {id:'qnt2',cat:'⚛️ Kwant',ic:'🌠',n:'Kolaps Memowy',d:'Obserwujesz mema, więc daje kliknięcia.',eff:'Reaktor ×50',cost:5e18,o:false,t:'bm',bid:'qnt',v:50,req:()=>go('qnt')>=25},
-  {id:'abs1',cat:'♾️ Absolut',ic:'📜',n:'Nowe Prawo Fizyki',d:'Pierwsze prawo: Zahar zawsze klika.',eff:'Absolut ×20',cost:20e18,o:false,t:'bm',bid:'abs',v:20,req:()=>go('abs')>=5},
-  {id:'abs2',cat:'♾️ Absolut',ic:'👑',n:'Monarchia Memów',d:'Wszystko, co istnieje, składa hołd kliknięciom.',eff:'Absolut ×100',cost:1e21,o:false,t:'bm',bid:'abs',v:100,req:()=>go('abs')>=25},
-  {id:'syn1',cat:'🔗 Synergia',ic:'🏗️',n:'Plan Miasta',d:'Każde 25 budynków wzmacnia całą gospodarkę.',eff:'+25% wszystko / 25 bud.',cost:5e8,o:false,t:'tier',v:.25,req:()=>BUILDINGS.reduce((s,b)=>s+b.o,0)>=75},
-  {id:'syn2',cat:'🔗 Synergia',ic:'🧲',n:'Łańcuch Produkcji',d:'Starsze budynki karmią nowsze, nowsze reklamują starsze.',eff:'+10% wszystko / typ budynku',cost:25e12,o:false,t:'wide',v:.10,req:()=>BUILDINGS.filter(b=>b.o>0).length>=12},
-  {id:'gold1',cat:'✨ Złote',ic:'🍀',n:'Szczęście z Tumskiej',d:'Złote memy pojawiają się częściej.',eff:'Złote memy ×1.5 częściej',cost:1e9,o:false,t:'gold',v:1.5,req:()=>atc>=5e6},
-  {id:'gold2',cat:'✨ Złote',ic:'💫',n:'Klik Frenzy+',d:'Złote memy są bardziej bezczelne.',eff:'Bonusy złotych memów +50%',cost:50e12,o:false,t:'goldp',v:1.5,req:()=>UPGRADES.find(u=>u.id==='gold1')?.o&&atc>=1e10},
+  {id:'u1', n:'Mocny Kursor',  c:100,    d:'Kliknięcia dają +1 więcej.',       o:false, e:(g)=>g.cpc+=1},
+  {id:'u2', n:'Szybsze Łzy',    c:500,    d:'Ciotki z Płocka są 2x szybsze.',   o:false, e:(g)=>g.bm.cio*=2},
+  {id:'u3', n:'Mega Palec',    c:2500,   d:'Twoje kliknięcie zyskuje +5% CPS.',o:false, e:(g)=>g.cpcPercent+=0.05},
+  {id:'u4', n:'Algorytm FYP',  c:12000,  d:'Fabryki Memów działają 2x lepiej.',o:false, e:(g)=>g.bm.mfm*=2},
+  {id:'u5', n:'Boska Esencja', c:75000,  d:'Zwiększa bazowe kliknięcie o +25.',o:false, e:(g)=>g.cpc+=25},
+  {id:'u6', n:'TikTok Premium',c:500000, d:'Wszystkie budynki dają 1.5x CPS.',  o:false, e:(g)=>{for(let k in g.bm)g.bm[k]*=1.5}}
 ];
 
 const SOUL_SHOP=[
-  {id:'ss1',ic:'👆',n:'Wieczny Palec',       d:'Permanentny bonus za klik. Przeżywa rebirth.',          eff:'+15% za klik',          bc:5,  lv:0,mx:20,t:'cp',v:.15},
-  {id:'ss2',ic:'🔄',n:'Płocka Krew',          d:'Permanentne przyspieszenie auto-klikerów.',             eff:'+15% CPS',              bc:5,  lv:0,mx:20,t:'csp',v:.15},
-  {id:'ss3',ic:'💥',n:'Moc Duszy',            d:'Permanentny mnożnik absolutnie wszystkiego.',           eff:'×1.5 wszystko',         bc:30, lv:0,mx:5, t:'am',v:1.5},
-  {id:'ss4',ic:'🏁',n:'Turbo Start',          d:'Zaczynasz rebirth z darmowymi kliknięciami.',           eff:'+1000 kliknięć na start',bc:10,lv:0,mx:10,t:'sc',v:1000},
-  {id:'ss5',ic:'🤖',n:'Automatyczny Palec',   d:'Zaczynasz rebirth z darmowym Turbo Palcem.',            eff:'+1 Turbo Palec na start',bc:25,lv:0,mx:5, t:'sb',v:1},
-  {id:'ss6',ic:'🧬',n:'Płocka Pamięć',        d:'Zachowujesz 5% kliknięć po rebirthu.',                  eff:'Zachowaj 5% kliknięć', bc:50, lv:0,mx:3, t:'kp',v:.05},
-  {id:'ss7',ic:'⚡',n:'Duch Przyspieszenia',  d:'Permanentny mnożnik szybkości auto-tiku.',              eff:'×2 szybkość tiku',      bc:100,lv:0,mx:3, t:'tm',v:2},
-  {id:'ss8',ic:'🌟',n:'Gwiezdna Moc',         d:'Permanentny +50% za każdy rebirth do wszystkiego.',     eff:'+50% za każdy rebirth', bc:75, lv:0,mx:1, t:'rbp',v:.5},
-  {id:'ss9',ic:'✨',n:'Złota Antena',          d:'Złote memy przychodzą szybciej po rebirthu.',           eff:'+20% złotych memów',    bc:120,lv:0,mx:5, t:'gf',v:.2},
-  {id:'ss10',ic:'🔥',n:'Wieczny Combo',        d:'Combo wygasa wolniej i daje większy mnożnik.',          eff:'+20% siły combo',       bc:160,lv:0,mx:5, t:'cb',v:.2},
-  {id:'ss11',ic:'📜',n:'Biuro Kontraktów',     d:'Kontrakty płacą większe nagrody.',                      eff:'+25% nagród kontraktów',bc:200,lv:0,mx:5, t:'qr',v:.25},
-  {id:'ss12',ic:'🏛️',n:'Dziedzictwo Płocka',  d:'Zaczynasz rebirth z częścią budynków niższego tieru.',  eff:'+1 budynek startowy',   bc:350,lv:0,mx:4, t:'legacy',v:1},
+  {id:'s1', n:'Trwała Esencja',  c:1,  l:0, m:10, d:'+20% do ogólnego CPS na zawsze.',   e:(g)=>g.sm.cps+=0.2},
+  {id:'s2', n:'Boski Palec',     c:2,  l:0, m:5,  d:'+2 kliknięcia na duszka za klik.',  e:(g)=>g.sm.cpc+=2},
+  {id:'s3', n:'Szczęście Zahara',c:5,  l:0, m:1,  d:'Złote memy pojawiają się 2x częściej.',e:(g)=>g.sm.gold=2}
 ];
+
 const ACHIEVEMENTS=[
-  {ic:'👆',n:'Pierwszy Klik',       d:'Zacząłeś. Płock jest dumny.',                     c:()=>atc>=1},
-  {ic:'🔟',n:'Dziesiątka',          d:'10 kliknięć. Rozgrzewka zakończona.',              c:()=>atc>=10},
-  {ic:'💯',n:'Stówka',              d:'100 kliknięć. Ciotka Halina gratuluje.',           c:()=>atc>=100},
-  {ic:'🌊',n:'Tysiąc Kliknięć',    d:'1000. TikTok Cię zauważył.',                       c:()=>atc>=1000},
-  {ic:'🚀',n:'10 Tysięcy',          d:'10k. Płock mówi o Tobie.',                         c:()=>atc>=10000},
-  {ic:'💎',n:'100 Tysięcy',         d:'100k. Legenda Płocka.',                            c:()=>atc>=100000},
-  {ic:'🌌',n:'Milion',              d:'1M kliknięć. Bóg Memów.',                          c:()=>atc>=1e6},
-  {ic:'🔥',n:'10 Milionów',         d:'10M. NASA Cię obserwuje.',                         c:()=>atc>=10e6},
-  {ic:'💀',n:'Miliard',             d:'Bóg transcendował dalej.',                         c:()=>atc>=1e9},
-  {ic:'🏗️',n:'Pierwszy Budynek',   d:'Kupiłeś budynek. Deweloper z Płocka.',             c:()=>BUILDINGS.some(b=>b.o>=1)},
-  {ic:'🏙️',n:'Mini-Płock',         d:'10 budynków. Prawie jak miasto.',                  c:()=>BUILDINGS.reduce((s,b)=>s+b.o,0)>=10},
-  {ic:'🌆',n:'Metropolia Memów',    d:'50 budynków. To gospodarka.',                      c:()=>BUILDINGS.reduce((s,b)=>s+b.o,0)>=50},
-  {ic:'🌇',n:'Mega-Miasto',         d:'200 budynków. Płock byłby zazdrosny.',             c:()=>BUILDINGS.reduce((s,b)=>s+b.o,0)>=200},
-  {ic:'⚡',n:'Pierwszy Auto-Klik',  d:'CPS ≥ 1. Dobre życie się zaczyna.',               c:()=>cps>=1},
-  {ic:'🌀',n:'100 CPS',             d:'100/s. Zahar nie musi wstawać.',                   c:()=>cps>=100},
-  {ic:'🌐',n:'1000 CPS',            d:'1k/s. Płock przejmuje internet.',                  c:()=>cps>=1000},
-  {ic:'🌌',n:'Milion CPS',          d:'1M/s. Rzeczywistość drży.',                        c:()=>cps>=1e6},
-  {ic:'💀',n:'Pierwszy Rebirth',    d:'Odrodziłeś się. Jesteś silniejszy.',               c:()=>rbs>=1},
-  {ic:'🌑',n:'5 Rebirth',           d:'Piąte odrodzenie. Nieśmiertelny.',                 c:()=>rbs>=5},
-  {ic:'✨',n:'10 Rebirth',          d:'Dziesiąte odrodzenie. Legenda ponad legendami.',   c:()=>rbs>=10},
-  {ic:'🏆',n:'Kompletny Arsenał',  d:'Wszystkie budynki kupione przynajmniej raz.',       c:()=>BUILDINGS.every(b=>b.o>=1)},
-  {ic:'🤡',n:'Zakup Czemóóó',      d:'Kupiłeś Combo Czemóóó. Szaleniec.',               c:()=>UPGRADES.find(u=>u.id==='cf1')?.o},
-  {ic:'🌍',n:'Podróżnik Światów',  d:'Odwiedziłeś przynajmniej 3 różne światy.',         c:()=>wv.size>=3},
-  {ic:'💎',n:'100 Duszek',          d:'100 duszek zebranych. Płock na kolanach.',         c:()=>souls>=100},
-  {ic:'🌟',n:'Sklep Dusz Kompletny',d:'Wszystkie ulepszenia duszek na max.',             c:()=>SOUL_SHOP.every(s=>s.lv>=s.mx)},
-  {ic:'☢️',n:'Palec Atomowy',       d:'Kupiłeś Palec Atomowy.',                           c:()=>UPGRADES.find(u=>u.id==='ck4')?.o},
-  {ic:'🤖',n:'AI Kontroluje All',  d:'AI Memer przekroczył 25 sztuk.',                   c:()=>go('ai')>=25},
-  {ic:'🌑',n:'Czarna Dziura Aktywna',d:'Kupiłeś pierwszą Czarną Dziurę.',               c:()=>go('blk')>=1},
-  {ic:'🏅',n:'Płocki Olimpijczyk', d:'+100 za klik samym klikaniem.',                    c:()=>perClick>=100},
-  {ic:'🌈',n:'Wszystkie Światy',   d:'Odwiedziłeś wszystkie 6 światów.',                 c:()=>wv.size>=6},
-  {ic:'🌀',n:'Multiwersalista',   d:'Kupiłeś pierwsze Multiwersum.',                    c:()=>go('mlt')>=1},
-  {ic:'🕊️',n:'Boski Hosting',    d:'Kupiłeś Boski Serwer.',                            c:()=>go('god')>=1},
-  {ic:'⏳',n:'Podróżnik Czasu',   d:'Kupiłeś Maszynę Czasu.',                           c:()=>go('tim')>=1},
-  {ic:'🧬',n:'Memowy Wirus',      d:'Kupiłeś pierwszą Memetyczną Bombę.',               c:()=>go('mem')>=1},
-  {ic:'💚',n:'Czerwona Tabletka', d:'Odwiedziłeś Matrix Płocka.',                       c:()=>wv.has('matrix')},
-  {ic:'💤',n:'Śpiący Klikacz',    d:'Odwiedziłeś Sen Zahara.',                          c:()=>wv.has('dream')},
-  {ic:'🫥',n:'Mistrz Pustki',     d:'Odwiedziłeś Pustkę Memów.',                        c:()=>wv.has('void')},
-  {ic:'♻️',n:'Wieczne Odrodzenie',d:'20 Rebirth. Jesteś fenomenem natury.',             c:()=>rbs>=20},
-  {ic:'💀',n:'50 Rebirth',        d:'Pół setki. Zahar jest nieśmiertelny.',             c:()=>rbs>=50},
-  {ic:'🌠',n:'Biliard CPS',       d:'1B/s. Rzeczywistość płacze.',                      c:()=>cps>=1e9},
-  {ic:'🏆',n:'Płocki Billioner',  d:'Masz miliard kliknięć naraz.',                     c:()=>clicks>=1e9},
-  {ic:'👑',n:'Pan Wszystkich Światów',d:'Odwiedziłeś wszystkie 10 światów.',            c:()=>wv.size>=10},
-  {ic:'✨',n:'Złoty Mem',         d:'Kliknąłeś pierwszy złoty mem.',                    c:()=>goldClicks>=1},
-  {ic:'🍀',n:'Łowca Złota',       d:'10 złotych memów. RNG Cię kocha.',                 c:()=>goldClicks>=10},
-  {ic:'🔥',n:'Combo 25',          d:'Utrzymałeś combo 25. Palec pracuje.',              c:()=>bestCombo>=25},
-  {ic:'📜',n:'Pierwszy Kontrakt', d:'Ukończyłeś kontrakt.',                             c:()=>contractsDone>=1},
-  {ic:'🏢',n:'Nowa Gospodarka',   d:'Kupiłeś Bank Klików.',                             c:()=>go('arc')>=1},
-  {ic:'⚛️',n:'Kwantowy Kapitalizm',d:'Kupiłeś Reaktor Kwantowy.',                       c:()=>go('qnt')>=1},
-  {ic:'♾️',n:'Absolutnie Wszystko',d:'Kupiłeś Absolut Memów.',                          c:()=>go('abs')>=1},
-  {ic:'🏗️',n:'Urbanista Memów',   d:'500 budynków. To już nie gra, to plan miasta.',    c:()=>BUILDINGS.reduce((s,b)=>s+b.o,0)>=500},
-  {ic:'💫',n:'Trylioner',         d:'Masz trylion kliknięć naraz.',                     c:()=>clicks>=1e12},
-].map(a=>({...a,ul:false}));
-
-const MILESTONES=[
-  {at:1,    t:'Płock się budzi!',       b:'Twoje pierwsze kliknięcie odbiło się echem po całej ul. Tumskiej.'},
-  {at:50,   t:'Plotka po mieście',      b:'Ciotka Halina rozesłała info. Wszystkie ciotki wiedzą.'},
-  {at:500,  t:'Lokalny Bohater',        b:'Urząd Gminy Płock zatwierdza Cię jako "Klikacza Roku". Certyfikat wysłany.'},
-  {at:2000, t:'TikTok Cię znalazł',    b:'Algorytm FYP wyczuł Twoją energię. Memy lecą w świat.'},
-  {at:10000,t:'Legenda Płocka',         b:'Twój portret w Muzeum Mazowieckim. Sala Memów. Specjalne oświetlenie.'},
-  {at:50000,t:'Bóg Klikania',           b:'ORLEN oferuje 50M PLN. Odmawiasz. Jesteś ponad tym.'},
-  {at:200000,t:'Memowe Imperium',       b:'Zahar stoi na czele największego imperium memowego w historii.'},
-  {at:1e6,  t:'✨ MILION! ✨',         b:'Pierwsza Milionowa Bariera przekroczona. Cała Polska klęka.'},
-  {at:10e6, t:'🌌 Wymiar Memów',       b:'Fizycy kwantowi z PW potwierdzają: Zahar otworzył nowy wymiar.'},
-  {at:100e6,t:'💫 Sto Milionów',       b:'100M kliknięć. ONZ uznaje Płock za światową stolicę memów.'},
-  {at:1e9,  t:'🔥 MILIARD!',           b:'MILIARD. Zahar stał się memem. Zahar jest absolutnie wszystkim.'},
-  {at:10e9, t:'💎 DZIESIĄĆ MILIARDÓW',  b:'Zahar przekroczył granicę bólu. PKB Płocka to teraz tylko 0.1% jego kliknięć.'},
-  {at:100e9,t:'🌌 STO MILIARDÓW',      b:'Liczby gubią sens. Zahar klika szybciej niż Wszechświat ma atomy.'},
-  {at:1e12, t:'🧬 BILION!',            b:'Bilion kliknięć. Fizycy kwantowi złożyli rezygnację. Mathy nie działa.'},
+  {id:'a1', n:'Początek legendy', d:'Kliknij 1 raz.',           f:(g)=>g.total>=1, u:false},
+  {id:'a2', n:'Młody Klikacz',    d:'Zdobądź 1,000 kliknięć.',   f:(g)=>g.clicks>=1000, u:false},
+  {id:'a3', n:'Władca Płocka',   d:'Posiadaj 10 budynków.',     f:(g)=>g.bCount>=10, u:false},
+  {id:'a4', n:'Pierwsze Odrodzenie',d:'Zrób Rebirth chociaż raz.',f:(g)=>g.rebirths>=1, u:false},
+  {id:'a5', n:'Milioner z TikToka',d:'Zdobądź 1,000,000 kliknięć.',f:(g)=>g.clicks>=1000000, u:false}
 ];
 
-/* ── STATE ── */
-let clicks=0,tc=0,atc=0,perClick=1,cps=0,rbs=0,souls=0,wid='plock',mi=0;
-let combo=0,bestCombo=0,lastClick=0,goldClicks=0,contractsDone=0,contractTier=1;
-let buffs={frenzy:0,click:0};
-const bm={};BUILDINGS.forEach(b=>bm[b.id]=1);
-let mhit=new Set(),wv=new Set(['plock']);
-let contracts=[
-  {k:'clicks',ic:'👆',n:'Klikowa Zmiana',d:'Zrób kliknięcia ręcznie.',base:120,goal:120,done:false},
-  {k:'buildings',ic:'🏗️',n:'Rozbudowa Płocka',d:'Kup budynki dowolnego typu.',base:10,goal:10,done:false},
-  {k:'upgrades',ic:'⚡',n:'Modernizacja',d:'Kup nowe ulepszenia.',base:3,goal:3,done:false},
-];
+/* ── GAME STATE ── */
+let G={
+  clicks:0, total:0, rebirths:0, souls:0, activeWorld:'plock',
+  bCount:0, cpc:1, cpcPercent:0, combo:0, lastClick:0,
+  bOwned:{}, bm:{}, sm:{cps:1, cpc:0, gold:1}
+};
 
-/* ── HELPERS ── */
-const go=id=>BUILDINGS.find(b=>b.id===id)?.o??0;
-function fmt(n){n=Math.floor(n);if(n>=1e12)return(n/1e12).toFixed(2)+'T';if(n>=1e9)return(n/1e9).toFixed(2)+'B';if(n>=1e6)return(n/1e6).toFixed(2)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'k';return n+''}
-function fmtc(n){if(n>=1e9)return(n/1e9).toFixed(1)+'B/s';if(n>=1e6)return(n/1e6).toFixed(1)+'M/s';if(n>=1e3)return(n/1e3).toFixed(1)+'k/s';if(n>=100)return Math.round(n)+'/s';return n.toFixed(1)+'/s'}
-function psnd(id){const e=document.getElementById(id);if(e){e.currentTime=0;e.play().catch(()=>{})}}
-const fc=['#ff2d78','#9b5cff','#2de0ff','#ffe94a','#00ffaa'];
-const BALANCE_VERSION=2;
-const HARD={buildCost:4,upgCost:12,soulCost:4,clickRate:.55,cpsRate:.32,contractReward:.18};
-function spawnFt(v){const r=document.getElementById('mring').getBoundingClientRect(),e=document.createElement('div');e.className='ft';e.style.color=fc[Math.floor(Math.random()*fc.length)];e.textContent='+'+fmt(v);e.style.left=(r.left+r.width/2+(Math.random()*70-35))+'px';e.style.top=(r.top+r.height/2+(Math.random()*30-15))+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),850)}
-function sw(){const b=document.getElementById('mring');b.classList.remove('sw');void b.offsetWidth;b.classList.add('sw')}
-function bump(){const e=document.getElementById('cnt');e.classList.remove('bump');void e.offsetWidth;e.classList.add('bump')}
-function scostOf(s){return Math.ceil(s.bc*HARD.soulCost*Math.pow(2.35,s.lv))}
-function bcost(b){return Math.round(b.bc*HARD.buildCost*Math.pow(1.24,b.o)*Math.pow(1.22,Math.floor(b.o/25)))}
-function ucost(u){return Math.ceil(u.cost*HARD.upgCost)}
-function rbSouls(){return Math.max(0,Math.floor(Math.sqrt(tc/75000)))}
-function rbCost(){return Math.floor(5e6*Math.pow(14,rbs))}
-function ss(id){return SOUL_SHOP.find(s=>s.id===id)}
-function hasUpg(id){return !!UPGRADES.find(u=>u.id===id)?.o}
-function totalBuildings(){return BUILDINGS.reduce((s,b)=>s+b.o,0)}
-function boughtUpgrades(){return UPGRADES.filter(u=>u.o).length}
-function comboPower(){return 1+(Math.min(combo,60)*(.003+(ss('ss10')?.lv||0)*.0008))}
-function buffPower(id){return Math.max(1,buffs[id]||0)}
-function goldPower(){return hasUpg('gold2')?1.5:1}
-function contractRewardMult(){return 1+(ss('ss11')?.lv||0)*(ss('ss11')?.v||0)}
-function setContractGoals(){contracts.forEach(c=>{c.goal=Math.ceil(c.base*3*Math.pow(2.6,contractTier-1));c.done=false})}
-function contractProgress(c){
-  if(c.k==='clicks')return Math.min(c.goal,Math.floor(tc));
-  if(c.k==='buildings')return Math.min(c.goal,totalBuildings());
-  if(c.k==='upgrades')return Math.min(c.goal,boughtUpgrades());
-  return 0;
+// Inicjalizacja domyślna struktur budynków
+BUILDINGS.forEach(b=>{G.bOwned[b.id]=0; G.bm[b.id]=1;});
+
+let activeTab='upg';
+let currentMemeIdx=0;
+let newsIdx=0;
+
+/* ── GAME LOGIC ── */
+function initGame() {
+  loadGame();
+  setupNews();
+  switchTab('upg');
+  renderBuildings();
+  renderUpgrades();
+  renderWorlds();
+  renderSoulShop();
+  updateUI();
+  
+  // Loops
+  setInterval(gameTick, 100);
+  setInterval(saveGame, 10000);
+  setInterval(spawnGolden, 25000 / G.sm.gold);
+  setInterval(rotateNews, 6000);
 }
 
-/* ── RECALC ── */
-function recalc(){
-  const w=WORLDS.find(x=>x.id===wid);
-  const wm=w?w.mx:1;
-  const ss1=SOUL_SHOP.find(s=>s.id==='ss1'),ss2=SOUL_SHOP.find(s=>s.id==='ss2'),ss3=SOUL_SHOP.find(s=>s.id==='ss3'),ss7=SOUL_SHOP.find(s=>s.id==='ss7'),ss8=SOUL_SHOP.find(s=>s.id==='ss8');
-  window._tickMult=Math.pow(ss7.v,ss7.lv);
-  const scp=1+ss1.lv*ss1.v,scs=1+ss2.lv*ss2.v,sam=Math.pow(ss3.v,ss3.lv),rbp=ss8.lv>0?(1+rbs*ss8.v):1;
-  let cp=1;
-  let gm=1,csm=1;
-  UPGRADES.filter(u=>u.o).forEach(u=>{
-    if(u.t==='cm')cp*=u.v;
-    else if(u.t==='cf')cp+=u.v;
-    else if(u.t==='am')gm*=u.v;
-    else if(u.t==='csm')csm*=u.v;
-    else if(u.t==='rbm')gm*=(rbs+1);
-    else if(u.t==='tier')gm*=1+Math.floor(totalBuildings()/25)*u.v;
-    else if(u.t==='wide')gm*=1+BUILDINGS.filter(b=>b.o>0).length*u.v;
+function gameTick() {
+  let baseCps = 0;
+  BUILDINGS.forEach(b => {
+    baseCps += G.bOwned[b.id] * b.cps * G.bm[b.id];
   });
-  cp*=scp*sam*wm*gm*rbp*buffPower('click')*comboPower()*HARD.clickRate;
-  perClick=Math.max(1,Math.round(cp));
-  let cs=BUILDINGS.reduce((s,b)=>s+b.o*b.cps*(bm[b.id]||1),0);
-  cs*=csm*scs*sam*wm*gm*rbp*buffPower('frenzy')*HARD.cpsRate;
-  cps=cs;
-}
-
-/* ── WORLD THEME ── */
-function applyWorld(id){
-  const w=WORLDS.find(x=>x.id===id);if(!w)return;
-  const r=document.documentElement.style;
-  r.setProperty('--pu',w.css.pu);r.setProperty('--pk',w.css.pk);r.setProperty('--bl',w.css.bl);r.setProperty('--bg',w.css.bg);
-  document.body.style.background=w.css.bg;
-  document.getElementById('wind').innerHTML=`<span class="wlabel">${w.ic} ${w.n} <span style="font-size:9px;color:var(--gr)">×${w.mx} bonus</span></span>`;
-}
-function setWorld(id){
-  const w=WORLDS.find(x=>x.id===id);if(!w||rbs<w.rbReq)return;
-  wid=id;wv.add(id);applyWorld(id);recalc();renderWorlds();updateUI();checkAch();
-}
-window.setWorld=setWorld;
-
-/* ── MEME ── */
-function setMeme(i,play=true){mi=(i+MEMES.length)%MEMES.length;const m=MEMES[mi];document.getElementById('mimg').src=m.s;document.getElementById('mlbl').textContent=m.l;document.getElementById('mnm').textContent=m.l;if(play)psnd(m.snd)}
-
-/* ── TOAST QUEUE ── */
-let tq=[],tb2=false;
-function showToast(t,b){tq.push({t,b});if(!tb2)drainT()}
-function drainT(){if(!tq.length){tb2=false;return}tb2=true;const{t,b}=tq.shift();const el=document.getElementById('toast');document.getElementById('tt').textContent=t;document.getElementById('tb').textContent=b;el.classList.add('show');setTimeout(()=>{el.classList.remove('show');setTimeout(drainT,500)},3800)}
-
-/* ── MILESTONES / ACH ── */
-function checkMs(){MILESTONES.forEach(m=>{if(!mhit.has(m.at)&&atc>=m.at){mhit.add(m.at);showToast(m.t,m.b)}})}
-function checkAch(){let ch=false;ACHIEVEMENTS.forEach(a=>{if(!a.ul&&a.c()){a.ul=true;ch=true;showToast('🏆 Osiągnięcie!',a.n+': '+a.d)}});if(ch)renderAch()}
-
-/* ── REBIRTH ── */
-function openRb(){const s=rbSouls();document.getElementById('msp').textContent=s;document.getElementById('rmodal').classList.add('open')}
-function closeRb(){document.getElementById('rmodal').classList.remove('open')}
-window.closeRb=closeRb;
-function doRebirth(){
-  const sg=rbSouls();souls+=sg;rbs++;
-  const ss6=SOUL_SHOP.find(s=>s.id==='ss6');
-  const kept=Math.floor(clicks*ss6.lv*ss6.v);
-  tc=0;clicks=kept;mhit.clear();
-  BUILDINGS.forEach(b=>{b.o=0;bm[b.id]=1});
-  UPGRADES.forEach(u=>u.o=false);
-  const ss4=SOUL_SHOP.find(s=>s.id==='ss4'),ss5=SOUL_SHOP.find(s=>s.id==='ss5');
-  clicks+=ss4.lv*ss4.v;
-  if(ss5.lv>0)BUILDINGS.find(b=>b.id==='cur').o=ss5.lv;
-  const legacy=ss('ss12')?.lv||0;
-  if(legacy>0)BUILDINGS.slice(0,legacy).forEach(b=>b.o+=1);
-  combo=0;buffs={frenzy:0,click:0};setContractGoals();
-  closeRb();recalc();renderAll();updateUI();renderContracts();
-  showToast('💀 REBIRTH!',`Level ${rbs}! +${sg} 💀 duszek! Wreszcie wolny – na chwilę.`);
-  autoSave();
-}
-window.doRebirth=doRebirth;
-
-/* ── BUY ── */
-function buyBld(id){
-  const b=BUILDINGS.find(x=>x.id===id);if(!b)return;
-  const cost=bcost(b);
-  if(clicks<cost)return;
-  clicks-=cost;b.o++;recalc();renderBlds();renderUpgs();updateUI();checkContracts();checkAch();
-}
-function buyUpg(id){
-  const u=UPGRADES.find(x=>x.id===id);
-  const cost=u?ucost(u):0;
-  if(!u||u.o||clicks<cost||!u.req())return;
-  clicks-=cost;u.o=true;
-  if(u.t==='bm')bm[u.bid]=(bm[u.bid]||1)*u.v;
-  recalc();renderUpgs();updateUI();checkContracts();checkAch();
-}
-function buySoul(id){
-  const s=SOUL_SHOP.find(x=>x.id===id);
-  if(!s||s.lv>=s.mx)return;
-  const cost=scostOf(s);
-  if(souls<cost)return;
-  souls-=cost;s.lv++;recalc();renderSoul();renderContracts();updateUI();checkAch();
-}
-
-/* ── UPDATE UI ── */
-function updateUI(){
-  document.getElementById('cnt').textContent=fmt(clicks);
-  document.getElementById('sc').textContent=fmt(clicks);
-  document.getElementById('sat').textContent=fmt(atc);
-  document.getElementById('scps').textContent=fmtc(cps);
-  document.getElementById('srb').textContent=rbs;
-  document.getElementById('scombo').textContent=combo;
-  document.getElementById('pci').innerHTML=`+<strong>${fmt(perClick)}</strong> za klik`;
-  document.getElementById('sbal').textContent=souls;
-  const bb=document.getElementById('bonusbar'),parts=[];
-  if(combo>0)parts.push(`🔥 Combo ×${comboPower().toFixed(2)}`);
-  if(buffs.frenzy>1)parts.push(`⚡ Frenzy ×${buffs.frenzy.toFixed(1)} CPS`);
-  if(buffs.click>1)parts.push(`💥 Klik ×${buffs.click.toFixed(0)}`);
-  bb.innerHTML=parts.map(x=>`<span class="buff">${x}</span>`).join('');
-  const rbbn=document.getElementById('rbtn'),rbin=document.getElementById('rinfo'),rsp2=document.getElementById('rsp');
-  if(tc>=rbCost()){rbbn.classList.add('vis');rbin.classList.add('vis');if(rsp2)rsp2.textContent=rbSouls()}
-  else{rbbn.classList.remove('vis');rbin.classList.remove('vis')}
-  // soul panel
-  if(rbs===0){document.getElementById('slck').style.display='block';document.getElementById('sitms').style.display='none'}
-  else{document.getElementById('slck').style.display='none';document.getElementById('sitms').style.display='flex'}
-  // blds
-  document.querySelectorAll('.bld').forEach(nd=>{
-    const b=BUILDINGS.find(x=>x.id===nd.dataset.id);if(!b)return;
-    const c=bcost(b);
-    nd.classList.toggle('dis',clicks<c);
-    nd.querySelector('.bc').textContent=fmt(c);
-    nd.querySelector('.bo').textContent='×'+b.o;
-    nd.querySelector('.br').textContent=fmt(b.o*b.cps*(bm[b.id]||1))+'/s base';
-  });
-  // upgrades
-  document.querySelectorAll('.upg:not(.owned)').forEach(nd=>{
-    const u=UPGRADES.find(x=>x.id===nd.dataset.id);if(!u||u.o)return;
-    nd.classList.toggle('dis',clicks<ucost(u)||!u.req());
-  });
-  // soul items
-  document.querySelectorAll('.sitm').forEach(nd=>{
-    const s=SOUL_SHOP.find(x=>x.id===nd.dataset.id);if(!s)return;
-    const c=scostOf(s),mx=s.lv>=s.mx;
-    nd.classList.toggle('dis',!mx&&souls<c);nd.classList.toggle('mx',mx);
-    const cel=nd.querySelector('.scost');if(cel)cel.textContent=mx?'MAX':c+' 💀';
-    const lel=nd.querySelector('.slvl');if(lel)lel.textContent=`Lv ${s.lv}/${s.mx}`;
-  });
-}
-
-/* ── RENDER BUILDINGS ── */
-function renderBlds(){
-  const l=document.getElementById('blist');l.innerHTML='';
-  BUILDINGS.forEach(b=>{
-    const c=bcost(b),n=document.createElement('div');
-    n.className='bld dis';n.dataset.id=b.id;n.title=b.lore;
-    n.innerHTML=`<div class="bi">${b.ic}</div><div class="bb"><div class="bn">${b.n}</div><div class="bd2">${b.d}</div><div class="bs"><span class="bo">×${b.o}</span><span class="br">${fmt(b.o*b.cps*(bm[b.id]||1))}/s base</span></div></div><div class="brt"><div class="bc">${fmt(c)}</div><div class="bcl">koszt</div></div>`;
-    n.addEventListener('click',()=>buyBld(b.id));l.appendChild(n);
-  });
-}
-
-/* ── RENDER UPGRADES ── */
-function renderUpgs(){
-  const p=document.getElementById('upg-panel');p.innerHTML='';
-  const av=UPGRADES.filter(u=>u.req()||u.o);
-  if(!av.length){p.innerHTML='<div style="text-align:center;padding:18px;font-size:10px;color:var(--mu)">Klikaj żeby odblokować!</div>';return}
-  av.forEach(u=>{
-    const n=document.createElement('div');
-    n.className='upg'+(u.o?' owned':' dis');n.dataset.id=u.id;
-    n.innerHTML=`<div class="ui2">${u.ic}</div><div class="ub"><div class="un">${u.n}</div><div class="uc2">${u.cat}</div><div class="ud">${u.d}</div><div class="ue">${u.eff}</div></div><div class="ur">${u.o?'<div class="udone">✓ Kupiono</div>':`<div class="ucost">${fmt(ucost(u))}</div>`}</div>`;
-    if(!u.o)n.addEventListener('click',()=>buyUpg(u.id));
-    p.appendChild(n);
-  });
-  document.getElementById('uci').textContent=`${UPGRADES.filter(u=>u.o).length}/${UPGRADES.length} ulepszeń`;
-}
-
-/* ── RENDER ACHIEVEMENTS ── */
-function renderAch(){
-  const p=document.getElementById('ach-panel');p.innerHTML='';
-  ACHIEVEMENTS.forEach(a=>{
-    const n=document.createElement('div');n.className='ach'+(a.ul?' ul':'');
-    n.innerHTML=`<div class="ai">${a.ul?a.ic:'🔒'}</div><div><div class="abn">${a.ul?a.n:'???'}</div><div class="abd">${a.ul?a.d:'Zdobądź, żeby zobaczyć.'}</div></div>`;
-    p.appendChild(n);
-  });
-}
-
-/* ── RENDER WORLDS ── */
-function renderWorlds(){
-  const p=document.getElementById('wld-panel');p.innerHTML='';
-  WORLDS.forEach(w=>{
-    const ul=rbs>=w.rbReq,cur=w.id===wid,n=document.createElement('div');
-    n.className='wcard'+(cur?' cur':'')+((!ul)?' lck':'');
-    n.innerHTML=`<div class="wt"><div class="wic">${w.ic}</div><div class="win"><div class="wn">${w.n}</div><div class="wd">${w.d}</div><div class="wb">×${w.mx} do wszystkiego</div></div><div>${cur?'<span class="wab">✓ Aktywny</span>':ul?`<button class="wsb" onclick="setWorld('${w.id}')">Wejdź</button>`:'<span style="font-size:10px;color:var(--mu)">🔒</span>'}</div></div>${!ul?`<div class="wreq">Wymagane: ${w.rbReq} rebirth (masz ${rbs})</div>`:''}<div class="wlore">${w.lore}</div>`;
-    p.appendChild(n);
-  });
-}
-
-/* ── RENDER SOUL SHOP ── */
-function renderSoul(){
-  const c=document.getElementById('sitms');c.innerHTML='';
-  SOUL_SHOP.forEach(s=>{
-    const cost=scostOf(s),mx=s.lv>=s.mx,n=document.createElement('div');
-    n.className='sitm'+(mx?' mx':souls<cost?' dis':'');n.dataset.id=s.id;
-    n.innerHTML=`<div class="sic">${s.ic}</div><div><div class="sbn">${s.n}</div><div class="sbd">${s.d}</div><div class="sbe">${s.eff}</div></div><div class="srt"><div class="scost">${mx?'MAX':cost+' 💀'}</div><div class="slvl">Lv ${s.lv}/${s.mx}</div></div>`;
-    if(!mx)n.addEventListener('click',()=>buySoul(s.id));
-    c.appendChild(n);
-  });
-}
-
-function renderContracts(){
-  const p=document.getElementById('contracts');if(!p)return;
-  document.getElementById('clvl').textContent=`Liga ${contractTier}`;
-  p.innerHTML='';
-  contracts.forEach(c=>{
-    const pr=contractProgress(c),pct=Math.min(100,pr/c.goal*100),n=document.createElement('div');
-    n.className='contractitem'+(c.done?' done':'');
-    n.innerHTML=`<div class="contractico">${c.ic}</div><div class="contractbody"><div class="contractname">${c.n}</div><div class="contractdesc">${c.d} ${fmt(pr)} / ${fmt(c.goal)}</div><div class="contractbar"><div class="contractfill" style="width:${pct}%"></div></div></div><div class="contractreward">+${fmt(contractReward(c))}</div>`;
-    p.appendChild(n);
-  });
-}
-function contractReward(c){return Math.max(15,Math.floor((c.goal*1.4+cps*3+perClick*4)*contractRewardMult()*HARD.contractReward))}
-function checkContracts(){
-  let changed=false;
-  contracts.forEach(c=>{
-    if(!c.done&&contractProgress(c)>=c.goal){
-      c.done=true;changed=true;const r=contractReward(c);clicks+=r;tc+=r;atc+=r;contractsDone++;
-      showToast('📜 Kontrakt ukończony!',`${c.n}: +${fmt(r)} kliknięć`);
+  
+  let worldMul = WORLDS.find(w=>w.id===G.activeWorld)?.mx || 1;
+  let soulCpsMul = G.sm.cps;
+  let totalCps = baseCps * worldMul * soulCpsMul;
+  
+  if (totalCps > 0) {
+    let added = totalCps / 10;
+    G.clicks += added;
+    G.total += added;
+  }
+  
+  // Sprawdzanie osiagnięć
+  let count=0; for(let k in G.bOwned) count+=G.bOwned[k]; G.bCount = count;
+  ACHIEVEMENTS.forEach(a => {
+    if(!a.u && a.f(G)) {
+      a.u = true;
+      showToast("🏆 Osiągnięcie odblokowane!", a.n);
+      renderAchievements();
     }
   });
-  if(contracts.every(c=>c.done)){contractTier++;setContractGoals();showToast('🏆 Liga kontraktów +1',`Nowa liga: ${contractTier}. Cele są trudniejsze, nagrody większe.`);changed=true}
-  if(changed){recalc();renderContracts();updateUI();checkAch()}
-  else renderContracts();
+
+  updateUI();
 }
 
-function renderAll(){renderBlds();renderUpgs();renderAch();renderWorlds();renderSoul();renderContracts()}
+function getCpc() {
+  let worldMul = WORLDS.find(w=>w.id===G.activeWorld)?.mx || 1;
+  let base = (G.cpc + G.sm.cpc) * worldMul;
+  let extra = 0;
+  BUILDINGS.forEach(b => { extra += G.bOwned[b.id] * b.cps * G.bm[b.id]; });
+  return base + (extra * G.cpcPercent);
+}
 
-/* ── TABS ── */
-function switchTab(t){
-  ['upg','ach','wld','soul'].forEach(id=>{
-    document.getElementById('t-'+id)?.classList.toggle('active',id===t);
-    document.getElementById(id+'-panel')?.classList.toggle('active',id===t);
+function getCps() {
+  let baseCps = 0;
+  BUILDINGS.forEach(b => { baseCps += G.bOwned[b.id] * b.cps * G.bm[b.id]; });
+  let worldMul = WORLDS.find(w=>w.id===G.activeWorld)?.mx || 1;
+  return baseCps * worldMul * G.sm.cps;
+}
+
+/* ── INTERACTION ── */
+document.getElementById('mring').addEventListener('click', (e) => {
+  let now = Date.now();
+  if (now - G.lastClick < 1000) {
+    G.combo++;
+  } else {
+    G.combo = 1;
+  }
+  G.lastClick = now;
+
+  let gain = getCpc();
+  if (G.combo > 10) gain *= 1.2; // Bonus combo
+  
+  G.clicks += gain;
+  G.total += gain;
+  
+  // Efekty wizualne
+  let cntEl = document.getElementById('cnt');
+  cntEl.classList.remove('bump');
+  void cntEl.offsetWidth;
+  cntEl.classList.add('bump');
+  
+  createFloatingText(e.clientX, e.clientY, `+${Math.floor(gain)}`);
+  
+  // Dźwięk
+  let audio = document.getElementById(MEMES[currentMemeIdx].snd);
+  if(audio) { audio.currentTime = 0; audio.play().catch(()=>{}); }
+  
+  updateUI();
+});
+
+function createFloatingText(x, y, txt) {
+  let el = document.createElement('div');
+  el.className = 'ft';
+  el.style.left = `${x}px`;
+  el.style.top = `${y}px`;
+  el.style.color = ['var(--pk)','var(--bl)','var(--ye)','var(--gr)'][Math.floor(Math.random()*4)];
+  el.innerText = txt;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 800);
+}
+
+/* ── BUILDINGS BUYING ── */
+function buyBuilding(id) {
+  let b = BUILDINGS.find(x=>x.id===id);
+  let cost = Math.floor(b.bc * Math.pow(1.15, G.bOwned[id]));
+  if (G.clicks >= cost) {
+    G.clicks -= cost;
+    G.bOwned[id]++;
+    renderBuildings();
+    updateUI();
+  }
+}
+
+function renderBuildings() {
+  let container = document.getElementById('blist');
+  container.innerHTML = '';
+  BUILDINGS.forEach(b => {
+    let owned = G.bOwned[b.id];
+    let cost = Math.floor(b.bc * Math.pow(1.15, owned));
+    let cpsc = (b.cps * G.bm[b.id] * (WORLDS.find(w=>w.id===G.activeWorld)?.mx || 1)).toFixed(1);
+    
+    let el = document.createElement('div');
+    el.id = `bld-${b.id}`;
+    el.className = `bld ${G.clicks < cost ? 'dis' : ''}`;
+    el.onclick = () => buyBuilding(b.id);
+    el.innerHTML = `
+      <div class="bi">${b.ic}</div>
+      <div class="bb">
+        <div class="bn">${b.n}</div>
+        <div class="bd2" style="font-size:8px;opacity:0.7">${b.d}</div>
+        <div class="bs">
+          <span class="bo">posiada: ${owned}</span>
+          <span class="br">+${cpsc}/s</span>
+        </div>
+      </div>
+      <div class="brt">
+        <div class="bc">${Math.floor(cost)}</div>
+        <div class="bcl">klików</div>
+      </div>
+    `;
+    container.appendChild(el);
   });
 }
-window.switchTab=switchTab;
 
-/* ── NEWS ── */
-let ni=0;function cycleNews(){const tr=document.getElementById('ntrack');tr.style.animation='none';tr.textContent=NEWS[ni++%NEWS.length];void tr.offsetWidth;tr.style.animation='scroll 32s linear'}
-cycleNews();setInterval(cycleNews,32000);
-
-/* ── GOLDEN MEME / BUFFS ── */
-function spawnGolden(){
-  const g=document.getElementById('golden');if(g.classList.contains('show'))return;
-  g.style.left=(70+Math.random()*(innerWidth-150))+'px';
-  g.style.top=(70+Math.random()*(innerHeight-160))+'px';
-  g.classList.add('show');
-  setTimeout(()=>g.classList.remove('show'),9000);
-}
-function nextGolden(){
-  const sf=1+(ss('ss9')?.lv||0)*(ss('ss9')?.v||0);
-  const uf=hasUpg('gold1')?1.5:1;
-  setTimeout(()=>{spawnGolden();nextGolden()},Math.max(18000,65000/(sf*uf)));
-}
-function clickGolden(){
-  const g=document.getElementById('golden');if(!g.classList.contains('show'))return;
-  g.classList.remove('show');goldClicks++;
-  const roll=Math.random(),gp=goldPower();
-  if(roll<.34){
-    buffs.frenzy=Math.max(buffs.frenzy,Math.round(5*gp));
-    showToast('✨ Złoty Mem: FRENZY!',`CPS ×${buffs.frenzy} przez chwilę.`);
-  }else if(roll<.64){
-    buffs.click=Math.max(buffs.click,Math.round(25*gp));
-    showToast('✨ Złoty Mem: CLICK FRENZY!',`Kliknięcia ×${buffs.click}. Teraz klikaj.`);
-  }else{
-    const gain=Math.max(perClick*18,cps*12,clicks*.025)*gp;
-    clicks+=gain;tc+=gain;atc+=gain;showToast('✨ Złoty Mem: Lucky!',`+${fmt(gain)} kliknięć.`);
+/* ── UPGRADES ── */
+function buyUpgrade(idx) {
+  let u = UPGRADES[idx];
+  if (!u.o && G.clicks >= u.c) {
+    G.clicks -= u.c;
+    u.o = true;
+    u.e(G);
+    renderUpgrades();
+    updateUI();
+    showToast("⚡ Ulepszenie kupione!", u.n);
   }
-  recalc();updateUI();checkContracts();checkAch();
 }
-setInterval(()=>{
-  let changed=false;
-  ['frenzy','click'].forEach(k=>{if(buffs[k]>1){buffs[k]-=(k==='click'?5:.1);if(buffs[k]<=1)buffs[k]=0;changed=true}});
-  if(combo>0&&Date.now()-lastClick>(1200+(ss('ss10')?.lv||0)*250)){combo=0;changed=true}
-  if(changed){recalc();updateUI()}
-},1000);
 
-/* ── CLICK ── */
-document.getElementById('mring').addEventListener('click',()=>{
-  const now=Date.now();combo=now-lastClick<1200+(ss('ss10')?.lv||0)*250?Math.min(combo+1,100):1;lastClick=now;bestCombo=Math.max(bestCombo,combo);recalc();
-  clicks+=perClick;tc+=perClick;atc+=perClick;
-  spawnFt(perClick);sw();bump();psnd(MEMES[mi].snd);
-  updateUI();checkMs();checkContracts();checkAch();
+function renderUpgrades() {
+  let container = document.getElementById('upg-panel');
+  container.innerHTML = '';
+  UPGRADES.forEach((u, idx) => {
+    let el = document.createElement('div');
+    el.className = `upg ${u.o ? 'owned' : (G.clicks < u.c ? 'dis' : '')}`;
+    if(!u.o) el.onclick = () => buyUpgrade(idx);
+    el.innerHTML = `
+      <div class="ui2">⚡</div>
+      <div class="ub">
+        <div class="un">${u.n}</div>
+        <div class="ud">${u.d}</div>
+      </div>
+      <div class="ur">
+        ${u.o ? '<span class="udone">KUPIONE</span>' : `<span class="ucost">${u.c}</span>`}
+      </div>
+    `;
+    container.appendChild(el);
+  });
+}
+
+/* ── WORLDS ── */
+function travelWorld(id) {
+  let w = WORLDS.find(x=>x.id===id);
+  if (G.rebirths >= w.rbReq) {
+    G.activeWorld = id;
+    // Zastosuj style świata
+    for (let k in w.css) {
+      document.documentElement.style.setProperty(`--${k}`, w.css[k]);
+    }
+    renderWorlds();
+    renderBuildings();
+    updateUI();
+    showToast("🌍 Zmieniono świat!", `Witamy w: ${w.n}`);
+  }
+}
+
+function renderWorlds() {
+  let container = document.getElementById('wld-panel');
+  container.innerHTML = '';
+  WORLDS.forEach(w => {
+    let isCur = G.activeWorld === w.id;
+    let isLck = G.rebirths < w.rbReq;
+    let el = document.createElement('div');
+    el.className = `wcard ${isCur ? 'cur' : ''} ${isLck ? 'lck' : ''}`;
+    if (!isCur && !isLck) el.onclick = () => travelWorld(w.id);
+    
+    el.innerHTML = `
+      <div class="wt">
+        <div class="wic">${w.ic}</div>
+        <div class="win">
+          <div class="wn">${w.n} ${isCur?'<span class="wab">Tu jesteś</span>':''}</div>
+          <div class="wd">${w.d}</div>
+          <div class="wb">Mnożnik: x${w.mx}</div>
+          ${isLck ? `<div class="wreq">Wymaga ${w.rbReq} Rebirthów</div>` : ''}
+        </div>
+      </div>
+      <div class="wlore">${w.lore}</div>
+    `;
+    container.appendChild(el);
+  });
+}
+
+/* ── SOUL SHOP ── */
+function buySoulItem(idx) {
+  let s = SOUL_SHOP[idx];
+  if (s.l < s.m && G.souls >= s.c) {
+    G.souls -= s.c;
+    s.l++;
+    s.e(G);
+    renderSoulShop();
+    updateUI();
+  }
+}
+
+function renderSoulShop() {
+  let container = document.getElementById('sitms');
+  let lockMsg = document.getElementById('slck');
+  if(G.rebirths === 0 && G.souls === 0) {
+    container.style.display = 'none';
+    lockMsg.style.display = 'block';
+    return;
+  }
+  container.style.display = 'flex';
+  lockMsg.style.display = 'none';
+  
+  container.innerHTML = '';
+  SOUL_SHOP.forEach((s, idx) => {
+    let isMax = s.l >= s.m;
+    let el = document.createElement('div');
+    el.className = `sitm ${isMax ? 'mx' : (G.souls < s.c ? 'dis' : '')}`;
+    if(!isMax) el.onclick = () => buySoulItem(idx);
+    el.innerHTML = `
+      <div class="sic">💀</div>
+      <div class="sb">
+        <div class="sbn">${s.n}</div>
+        <div class="sbd">${s.d}</div>
+        <div class="sbe">Poziom: ${s.l}/${s.m}</div>
+      </div>
+      <div class="srt">
+        ${isMax ? '<span class="udone">MAX</span>' : `<span class="scost">${s.c} 💀</span>`}
+      </div>
+    `;
+    container.appendChild(el);
+  });
+}
+
+function renderAchievements() {
+  let container = document.getElementById('ach-panel');
+  container.innerHTML = '';
+  ACHIEVEMENTS.forEach(a => {
+    let el = document.createElement('div');
+    el.className = `ach ${a.u ? 'ul' : ''}`;
+    el.innerHTML = `
+      <div class="ai">${a.u ? '🏆' : '🔒'}</div>
+      <div class="ab">
+        <div class="abn">${a.n}</div>
+        <div class="abd">${a.d}</div>
+      </div>
+    `;
+    container.appendChild(el);
+  });
+}
+
+/* ── REBIRTH SYSTEM ── */
+function calculateSoulsEarned() {
+  if (G.clicks < 100000) return 0;
+  return Math.floor(Math.sqrt(G.clicks / 100000));
+}
+
+function openRb() {
+  let earned = calculateSoulsEarned();
+  document.getElementById('msp').innerText = earned;
+  document.getElementById('rmodal').classList.add('open');
+}
+function closeRb() {
+  document.getElementById('rmodal').classList.remove('open');
+}
+function doRebirth() {
+  let earned = calculateSoulsEarned();
+  if (earned > 0) {
+    G.souls += earned;
+    G.rebirths++;
+    G.clicks = 0;
+    
+    // Resetuj budynki i ulepszenia standardowe
+    BUILDINGS.forEach(b => G.bOwned[b.id] = 0);
+    UPGRADES.forEach(u => u.o = false);
+    
+    // Przywróć podstawowe mnożniki modyfikowane przez ulepszenia
+    G.cpc = 1;
+    G.cpcPercent = 0;
+    BUILDINGS.forEach(b => G.bm[b.id] = 1);
+    
+    closeRb();
+    renderBuildings();
+    renderUpgrades();
+    renderSoulShop();
+    renderWorlds();
+    updateUI();
+    showToast("💀 Odrodzenie dokonane!", `Zyskałeś ${earned} duszków wirali.`);
+    saveGame();
+  }
+}
+
+/* ── GOLDEN MEME ── */
+function spawnGolden() {
+  let btn = document.getElementById('golden');
+  btn.style.left = `${Math.random() * (window.innerWidth - 100) + 10}px`;
+  btn.style.top = `${Math.random() * (window.innerHeight - 100) + 50}px`;
+  btn.classList.add('show');
+  
+  let clickFunc = () => {
+    let bonus = Math.max(50, getCpc() * 45);
+    G.clicks += bonus;
+    G.total += bonus;
+    showToast("✨ Boski Traf!", `Złoty Zahar daje +${Math.floor(bonus)} kliknięć!`);
+    btn.classList.remove('show');
+    btn.removeEventListener('click', clickFunc);
+  };
+  btn.addEventListener('click', clickFunc);
+  
+  setTimeout(() => {
+    btn.classList.remove('show');
+    btn.removeEventListener('click', clickFunc);
+  }, 6000);
+}
+
+/* ── NAVIGATION & UI ── */
+function switchTab(t) {
+  activeTab = t;
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tc').forEach(el => el.style.display = 'none');
+  
+  document.getElementById(`t-${t}`).classList.add('active');
+  document.getElementById(`${t}-panel`).style.display = 'flex';
+  
+  if (t === 'ach') renderAchievements();
+}
+
+document.getElementById('nm').addEventListener('click', () => {
+  currentMemeIdx = (currentMemeIdx + 1) % MEMES.length;
+  updateMemeDisplay();
 });
-document.getElementById('pm').addEventListener('click',()=>setMeme(mi-1));
-document.getElementById('nm').addEventListener('click',()=>setMeme(mi+1));
-document.getElementById('rbtn').addEventListener('click',openRb);
-document.getElementById('golden').addEventListener('click',clickGolden);
+document.getElementById('pm').addEventListener('click', () => {
+  currentMemeIdx = (currentMemeIdx - 1 + MEMES.length) % MEMES.length;
+  updateMemeDisplay();
+});
 
-/* ── AUTO TICK 10fps ── */
-setInterval(()=>{
-  if(cps>0){const g=cps/10*(window._tickMult||1);clicks+=g;tc+=g;atc+=g;updateUI()}
-},100);
-setInterval(checkContracts,1500);
-
-/* ── SAVE / LOAD ── */
-function getSave(){return{balanceVersion:BALANCE_VERSION,clicks,tc,atc,rbs,souls,wid,mi,combo,bestCombo,goldClicks,contractsDone,contractTier,buffs,contracts,bo:BUILDINGS.map(b=>b.o),uo:UPGRADES.map(u=>u.o),sl:SOUL_SHOP.map(s=>s.lv),au:ACHIEVEMENTS.map(a=>a.ul),bm:{...bm},mh:[...mhit],wv:[...wv]}}
-function loadSave(sv){
-  if(!sv)return;
-  clicks=sv.clicks??0;tc=sv.tc??0;atc=sv.atc??0;rbs=sv.rbs??0;souls=sv.souls??0;wid=sv.wid??'plock';mi=sv.mi??0;
-  combo=sv.combo??0;bestCombo=sv.bestCombo??0;goldClicks=sv.goldClicks??0;contractsDone=sv.contractsDone??0;contractTier=sv.contractTier??1;buffs=sv.buffs??{frenzy:0,click:0};
-  if(sv.contracts)contracts.forEach((c,i)=>{const old=sv.contracts[i];if(old){c.goal=old.goal??c.goal;c.done=old.done??false}});
-  if(sv.balanceVersion!==BALANCE_VERSION)setContractGoals();
-  if(sv.bo)BUILDINGS.forEach((b,i)=>b.o=sv.bo[i]??0);
-  if(sv.uo)UPGRADES.forEach((u,i)=>u.o=sv.uo[i]??false);
-  if(sv.sl)SOUL_SHOP.forEach((s,i)=>s.lv=sv.sl[i]??0);
-  if(sv.au)ACHIEVEMENTS.forEach((a,i)=>a.ul=sv.au[i]??false);
-  if(sv.bm)BUILDINGS.forEach(b=>bm[b.id]=sv.bm[b.id]??1);
-  if(sv.mh)mhit=new Set(sv.mh);
-  if(sv.wv)wv=new Set(sv.wv);
+function updateMemeDisplay() {
+  let m = MEMES[currentMemeIdx];
+  document.getElementById('mlbl').innerText = m.l;
+  document.getElementById('mnm').innerText = m.l;
+  // Możesz podstawić realną grafikę podmieniając atrybut src, np.: m.s
 }
-function autoSave(){try{localStorage.setItem('plock_mc_v3',JSON.stringify(getSave()));const i=document.getElementById('savi');i.classList.add('show');setTimeout(()=>i.classList.remove('show'),2000)}catch(e){}}
-setContractGoals();
-try{loadSave(JSON.parse(localStorage.getItem('plock_mc_v3')))}catch(e){}
-setInterval(autoSave,30000);addEventListener('beforeunload',autoSave);
 
-/* ── INIT ── */
-recalc();applyWorld(wid);renderAll();setMeme(mi,false);updateUI();switchTab('upg');checkMs();checkAch();nextGolden();
+function updateUI() {
+  let fmt = (v) => Math.floor(v).toLocaleString('pl-PL');
+  document.getElementById('cnt').innerText = fmt(G.clicks);
+  document.getElementById('sc').innerText = fmt(G.clicks);
+  document.getElementById('sat').innerText = fmt(G.total);
+  document.getElementById('scps').innerText = fmt(getCps());
+  document.getElementById('srb').innerText = G.rebirths;
+  document.getElementById('scombo').innerText = G.combo;
+  document.getElementById('sbal').innerText = G.souls;
+  document.getElementById('pci').innerHTML = `+<strong>${fmt(getCpc())}</strong> za klik`;
+  
+  let earned = calculateSoulsEarned();
+  let rInfo = document.getElementById('rinfo');
+  let rBtn = document.getElementById('rbtn');
+  
+  if (earned > 0) {
+    rInfo.classList.add('vis');
+    rBtn.classList.add('vis');
+    document.getElementById('rsp').innerText = earned;
+    rBtn.onclick = openRb;
+  } else {
+    rInfo.classList.remove('vis');
+    rBtn.classList.remove('vis');
+  }
+  
+  // Aktualizacja statusu dostępności budynków w widoku (szybka klasa .dis)
+  BUILDINGS.forEach(b => {
+    let el = document.getElementById(`bld-${b.id}`);
+    if(el) {
+      let cost = Math.floor(b.bc * Math.pow(1.15, G.bOwned[b.id]));
+      if(G.clicks >= cost) el.classList.remove('dis');
+      else el.classList.add('dis');
+    }
+  });
+  
+  let w = WORLDS.find(x=>x.id===G.activeWorld);
+  document.getElementById('wind').innerHTML = `<span class="wlabel">${w.ic} ${w.n} (x${w.mx})</span>`;
+}
+
+/* ── NEWS TICKER ── */
+function setupNews() {
+  rotateNews();
+}
+function rotateNews() {
+  newsIdx = Math.floor(Math.random() * NEWS.length);
+  document.getElementById('ntrack').innerText = NEWS[newsIdx];
+}
+
+/* ── TOAST ── */
+function showToast(title, body) {
+  let t = document.getElementById('toast');
+  document.getElementById('tt').innerText = title;
+  document.getElementById('tb').innerText = body;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+/* ── SAVE/LOAD ── */
+function saveGame() {
+  localStorage.setItem('zahar_clicker_save_v2', JSON.stringify({
+    G: G,
+    upgradesOwned: UPGRADES.map(u => u.o),
+    soulShopLevels: SOUL_SHOP.map(s => s.l)
+  }));
+  let s = document.getElementById('savi');
+  s.classList.add('show');
+  setTimeout(() => s.classList.remove('show'), 2000);
+}
+
+function loadGame() {
+  let raw = localStorage.getItem('zahar_clicker_save_v2');
+  if (raw) {
+    try {
+      let data = JSON.parse(raw);
+      if(data.G) {
+        // Połączenie struktur dla kompatybilności wstecznej
+        G = Object.assign(G, data.G);
+      }
+      if(data.upgradesOwned) {
+        data.upgradesOwned.forEach((owned, idx) => {
+          if(UPGRADES[idx]) {
+            UPGRADES[idx].o = owned;
+            if(owned) UPGRADES[idx].e(G);
+          }
+        });
+      }
+      if(data.soulShopLevels) {
+        data.soulShopLevels.forEach((lvl, idx) => {
+          if(SOUL_SHOP[idx]) {
+            SOUL_SHOP[idx].l = lvl;
+            for(let i=0; i<lvl; i++) SOUL_SHOP[idx].e(G);
+          }
+        });
+      }
+    } catch(e) {
+      console.error("Błąd ładowania zapisu", e);
+    }
+  }
+}
+
+// Uruchomienie aplikacji po załadowaniu drzewa DOM
+window.addEventListener('DOMContentLoaded', initGame);
 </script>
 </body>
 </html>
