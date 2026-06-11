@@ -82,7 +82,6 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 .contracthead h3{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bl)}
 .contractlvl{font-size:10px;color:var(--ye);font-weight:800}
 .contractitem{display:flex;gap:8px;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,.06)}
-.contractitem:first-of-type{border-top:0}
 .contractitem.done{opacity:.55}
 .contractico{font-size:17px;width:28px;text-align:center;flex-shrink:0}
 .contractbody{flex:1;min-width:0}
@@ -197,7 +196,7 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
     <div class="bonusbar" id="bonusbar"></div>
     <div class="ring" id="mring">
       <div class="rinn">
-        <img id="mimg" class="mimg" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231a1a2e'/><text x='50%27 y='55%27 font-family='sans-serif' font-size='12' fill='%23fff' text-anchor='middle'>MEME IMAGE</text></svg>" alt="mem"/>
+        <img id="mimg" class="mimg" src="plakal.jpeg" alt="mem"/>
         <div class="mtag" id="mlbl">płakał</div>
       </div>
     </div>
@@ -264,7 +263,6 @@ body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--
 <audio id="snd_torta" src="torta.mp3"></audio>
 <audio id="snd_plock" src="plock.mp3"></audio>
 <audio id="snd_czemooo" src="czemooo.mp3"></audio>
-
 <script>
 /* ── STARFIELD ── */
 (()=>{const c=document.getElementById('bgc'),cx=c.getContext('2d');let W,H,S=[];const R=()=>{W=c.width=innerWidth;H=c.height=innerHeight};const ms=()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random(),sp:Math.random()*.35+.08,d:Math.random()>.5?1:-1});const init=n=>{S=[];for(let i=0;i<n;i++)S.push(ms())};const draw=()=>{cx.clearRect(0,0,W,H);S.forEach(s=>{s.a+=s.sp*s.d*.007;if(s.a>1||s.a<0)s.d*=-1;cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=`rgba(255,255,255,${s.a})`;cx.fill()});requestAnimationFrame(draw)};R();addEventListener('resize',()=>{R();init(180)});init(180);draw()})();
@@ -275,551 +273,54 @@ const NEWS=['🔴 BREAKING: Zahar kliknął mem 1000 razy. Eksperci z Płocka zd
 const MEMES=[{l:'płakał',s:'plakal.jpeg',snd:'snd_plakal'},{l:'tortą',s:'torta.jpeg',snd:'snd_torta'},{l:'Z Płocka jestem',s:'plock.jpeg',snd:'snd_plock'},{l:'czemóóó',s:'czemooo.jpeg',snd:'snd_czemooo'}];
 
 const WORLDS=[
-  {id:'plock',   n:'Płock',           ic:'🌍',d:'Twoje miasto. Skromne początki.',    lore:'Tu wszystko się zaczęło. Wisła, ul. Tumska, ciotka Halina i jej WhatsApp.',             rbReq:0,  mx:1,   css:{pu:'#9b5cff',pk:'#ff2d78',bl:'#2de0ff',bg:'#08080f'}},
+  {id:'plock',   n:'Płock',           ic:'🌍',d:'Twoje miasto. Skromne początki.',   lore:'Tu wszystko się zaczęło. Wisła, ul. Tumska, ciotka Halina i jej WhatsApp.',             rbReq:0,  mx:1,   css:{pu:'#9b5cff',pk:'#ff2d78',bl:'#2de0ff',bg:'#08080f'}},
   {id:'warsaw',  n:'Warszawa',         ic:'🏙️',d:'Stolica. Drożej, szybciej, więcej.', lore:'Po 1 rebirthu Zahar wyruszył na podbój stolicy. PKiN wyglądał jak wieża z memów.',    rbReq:1,  mx:2,   css:{pu:'#3d7bff',pk:'#ff7b2d',bl:'#2dffcc',bg:'#06080f'}},
   {id:'tiktok',  n:'Wymiar TikToka',  ic:'📲',d:'Rzeczywistość składa się z memów.',   lore:'Zahar wpadł w spiralę TikToka na 3 tygodnie i odkrył Wymiar gdzie kliknięcia są wieczne.',rbReq:3,mx:5,   css:{pu:'#dd44ff',pk:'#ff44aa',bl:'#ff44ee',bg:'#0f0812'}},
-  {id:'hell',    n:'Memowe Piekło',  ic:'🔥',d:'Płomienie wirali. Memy płoną wiecznie.',lore:'Zahar przeszedł przez ogień i wyszedł z pełnym HP. Piekło wypełnione memami z 2016.',   rbReq:7,  mx:20,  css:{pu:'#ff7700',pk:'#ff2200',bl:'#ffaa00',bg:'#0f0400'}},
+  {id:'hell',    n:'Memowe Piekło',   ic:'🔥',d:'Płomienie wirali. Memy płoną wiecznie.',lore:'Zahar przeszedł przez ogień i wyszedł z pełnym HP. Piekło wypełnione memami z 2016.',  rbReq:7,  mx:20,  css:{pu:'#ff7700',pk:'#ff2200',bl:'#ffaa00',bg:'#0f0400'}},
   {id:'cosmos',  n:'Kosmiczny Płock', ic:'🌌',d:'Płock w kosmosie. Klikasz w gwiazdy.',lore:'NASA zaprosiło Zahara na ISS. Odrzucił. Zamiast tego zbudował własną stację w piwnicy.',  rbReq:12, mx:60,  css:{pu:'#5c3fff',pk:'#a020f0',bl:'#4488ff',bg:'#030510'}},
-  {id:'heaven',  n:'Niebo Memów',       ic:'✨',d:'Transcendencja. Sam jesteś memem.',    lore:'Na 20. rebirthu Zahar odkrył że sam jest memem. Boskie Kliknięcie stało się jego duszą.',rbReq:20, mx:200, css:{pu:'#ffe94a',pk:'#fff0aa',bl:'#fffff0',bg:'#07070d'}},
-  {id:'matrix',  n:'Matrix Płocka',  ic:'💚',d:'Zielony kod spada z nieba.',              lore:'Zahar wziął czerwoną tabletkę. Okazało się że Płock to symulacja. I tak klika dalej.',  rbReq:30, mx:500, css:{pu:'#00ff44',pk:'#00cc33',bl:'#44ff88',bg:'#000a03'}},
+  {id:'heaven',  n:'Niebo Memów',      ic:'✨',d:'Transcendencja. Sam jesteś memem.',    lore:'Na 20. rebirthu Zahar odkrył że sam jest memem. Boskie Kliknięcie stało się jego duszą.',rbReq:20, mx:200, css:{pu:'#ffe94a',pk:'#fff0aa',bl:'#fffff0',bg:'#07070d'}},
+  {id:'matrix',  n:'Matrix Płocka',  ic:'💚',d:'Zielony kod spada z nieba.',             lore:'Zahar wziął czerwoną tabletkę. Okazało się że Płock to symulacja. I tak klika dalej.',  rbReq:30, mx:500, css:{pu:'#00ff44',pk:'#00cc33',bl:'#44ff88',bg:'#000a03'}},
   {id:'dream',   n:'Sen Zahara',      ic:'💤',d:'Śni i klika w tym samym czasie.',        lore:'Zahar nauczył się klikać we śnie. Jego sen jest teraz produktywniejszy niż twój dzień.',  rbReq:42, mx:1000,css:{pu:'#aa88ff',pk:'#ff88cc',bl:'#88ccff',bg:'#05030f'}},
-  {id:'void',    n:'Pustka Memów',    ic:'🫥',d:'Brak wszystkiego. A jednak klikasz.',   lore:'Poza czasem, przestrzenią i Płockiem. Tylko Zahar, kursor i cisza. I CPS 10 miliardów.',rbReq:60, mx:5000,css:{pu:'#aaaaaa',pk:'#888888',bl:'#cccccc',bg:'#010101'}},
+  {id:'void',    n:'Pustka Memów',   ic:'🫥',d:'Brak wszystkiego. A jednak klikasz.',   lore:'Poza czasem, przestrzenią i Płockiem. Tylko Zahar, kursor i cisza. I CPS 10 miliardów.',rbReq:60, mx:5000,css:{pu:'#aaaaaa',pk:'#888888',bl:'#cccccc',bg:'#010101'}},
   {id:'rebirth', n:'Świat Odrodzenia',ic:'♻️',d:'Każdy rebirth dodaje wymiarów.',       lore:'Zahar przetasował całą rzeczywistość. Każde odrodzenie to nowy wszechświat. Klika we wszystkich.',rbReq:80,mx:20000,css:{pu:'#ff5500',pk:'#ffaa00',bl:'#00ffdd',bg:'#080408'}},
 ];
 
 const BUILDINGS=[
-  {id:'cur',  ic:'☝️', n:'Turbo Palec',       d:'Sam klika za Ciebie.',              lore:'Zahar był zbyt leniwy więc wynalazł autokliker. Palec klika bez jego wiedzy.',             bc:15,        o:0,cps:.1},
-  {id:'cio',  ic:'👵', n:'Ciotka z Płocka',   d:'Wysyła memy 24/7.',                 lore:'Ciotka Halina, 67 lat, ul. Tumska 12. Wysyła memy zanim staną się memami.',                bc:100,       o:0,cps:.5},
-  {id:'scr',  ic:'📱', n:'Auto-Scroll',        d:'TikTok scrolluje się sam.',          lore:'Zahar zasnął z telefonem. TikTok nauczył się scrollować bez niego. AI senności.',          bc:500,       o:0,cps:4},
-  {id:'mfm',  ic:'🏭', n:'Fabryka Memów',     d:'Produkuje memy non-stop.',           lore:'Stara hala po Petrochemii Płock. 15 memów/s. PKN Orlen jest zazdrosny.',                   bc:2000,      o:0,cps:15},
-  {id:'fyp',  ic:'🚀', n:'FYP Machine',       d:'Twoje memy zawsze na FYP.',          lore:'Zahar zapłacił 420 duszkami za root access do serwera TikToka. ByteDance szuka go.',       bc:8000,      o:0,cps:50},
-  {id:'plcz', ic:'😭', n:'Zakład Płakania',   d:'Płakacze generują kliknięcia łzami.',lore:'Po sukcesie plakal.jpeg Zahar zatrudnił 47 profesjonalnych płakaczy na etacie.',           bc:25000,     o:0,cps:120},
-  {id:'bcli', ic:'🌌', n:'Boskie Kliknięcie',d:'Kliknięcie przetwarza rzeczywistość.',lore:'Legenda głosi że pierwsze Boskie Kliknięcie stworzyło Płock. PW to potwierdza.',         bc:100000,    o:0,cps:400},
-  {id:'ai',   ic:'🤖', n:'AI Memer',          d:'GPT-∞ tworzy memy autonomicznie.',   lore:'AI nauczyło się co to czemóóó bez treningu. Teraz nie można jej niczego innego nauczyć.',bc:400000,    o:0,cps:1200},
-  {id:'swt',  ic:'🏛️', n:'Świątynia Płocka', d:'Pielgrzymi klikają dla Zahara.',     lore:'Katedra Płocka przerobiona na Świątynią Klikania. Biskupi zostali moderatorami.',        bc:2000000,   o:0,cps:5000},
-  {id:'imp',  ic:'🌐', n:'Memowe Imperium',   d:'Cały internet na Twoje rozkazy.',    lore:'Zahar przejął Google, Meta i TikTok w jeden weekend. SEC go szuka w Płocku.',            bc:15000000,  o:0,cps:20000},
+  {id:'cur',  ic:'☝️', n:'Turbo Palec',      d:'Sam klika za Ciebie.',              lore:'Zahar był zbyt leniwy więc wynalazł autokliker. Palec klika bez jego wiedzy.',               bc:15,        o:0,cps:.1},
+  {id:'cio',  ic:'👵', n:'Ciotka z Płocka',  d:'Wysyła memy 24/7.',                 lore:'Ciotka Halina, 67 lat, ul. Tumska 12. Wysyła memy zanim staną się memami.',                bc:100,       o:0,cps:.5},
+  {id:'scr',  ic:'📱', n:'Auto-Scroll',       d:'TikTok scrolluje się sam.',         lore:'Zahar zasnął z telefonem. TikTok nauczył się scrollować bez niego. AI senności.',          bc:500,       o:0,cps:4},
+  {id:'mfm',  ic:'🏭', n:'Fabryka Memów',     d:'Produkuje memy non-stop.',          lore:'Stara hala po Petrochemii Płock. 15 memów/s. PKN Orlen jest zazdrosny.',                   bc:2000,      o:0,cps:15},
+  {id:'fyp',  ic:'🚀', n:'FYP Machine',      d:'Twoje memy zawsze na FYP.',          lore:'Zahar zapłacił 420 duszkami za root access do serwera TikToka. ByteDance szuka go.',       bc:8000,      o:0,cps:50},
+  {id:'plcz', ic:'😭', n:'Zakład Płakania',  d:'Płakacze generują kliknięcia łzami.',lore:'Po sukcesie plakal.jpeg Zahar zatrudnił 47 profesjonalnych płakaczy na etacie.',           bc:25000,     o:0,cps:120},
+  {id:'bcli', ic:'🌌', n:'Boskie Kliknięcie',d:'Kliknięcie przetwarza rzeczywistość.',lore:'Legenda głosi że pierwsze Boskie Kliknięcie stworzyło Płock. PW to potwierdza.',        bc:100000,    o:0,cps:400},
+  {id:'ai',   ic:'🤖', n:'AI Memer',         d:'GPT-∞ tworzy memy autonomicznie.',  lore:'AI nauczyło się co to czemóóó bez treningu. Teraz nie można jej niczego innego nauczyć.',bc:400000,    o:0,cps:1200},
+  {id:'swt',  ic:'🏛️', n:'Świątynia Płocka', d:'Pielgrzymi klikają dla Zahara.',    lore:'Katedra Płocka przerobiona na Świątynię Klikania. Biskupi zostali moderatorami.',        bc:2000000,   o:0,cps:5000},
+  {id:'imp',  ic:'🌐', n:'Memowe Imperium',  d:'Cały internet na Twoje rozkazy.',   lore:'Zahar przejął Google, Meta i TikTok w jeden weekend. SEC go szuka w Płocku.',             bc:15000000,  o:0,cps:20000},
   {id:'lab',  ic:'⚗️', n:'Lab Wirali',       d:'Wirusy memowe w kontrolowanych war.',lore:'CERN odmówiło. Zahar zbudował własny synchrotron memów w piwnicy rodziców.',             bc:100000000, o:0,cps:100000},
   {id:'blk',  ic:'🌑', n:'Czarna Dziura',     d:'Pochłania całe internety.',          lore:'Hawking mówił że to niemożliwe. Zahar zrobił to w tydzień. 500k memów na sekundę.',       bc:1e9,       o:0,cps:500000},
-  {id:'mlt',  ic:'🌀', n:'Multiwersum',       d:'Nieskończone wersje Płocka klikają.',lore:'Zahar odkrył że w każdym wszechświecie istnieje kopia siebie. Wszystkie klikają razem.',     bc:8e9,       o:0,cps:2000000},
-  {id:'god',  ic:'🕊️', n:'Boski Serwer',     d:'Chmura obliczeniowa nad chmurami.', lore:'Zahar wynajął serwer od samego Boga. Ping: 0ms. SLA: nieskończoność. Koszty: 1 duszka/rok.',bc:75e9,      o:0,cps:10000000},
-  {id:'tim',  ic:'⏳', n:'Maszyna Czasu',    d:'Klika w przeszłości i przyszłości.', lore:'Zahar manipuluje linią czasu Płocka, zbierając kliki z jutra już wczoraj.',          bc:500e9,     o:0,cps:65000000}
+  {id:'mlt',  ic:'🌀', n:'Multiwersum',      d:'Nieskończone wersje Płocka klikają.',lore:'Zahar odkrył że w każdym wszechświecie istnieje kopia siebie. Wszystkie klikają razem.',    bc:8e9,       o:0,cps:2000000},
+  {id:'god',  ic:'🕊️', n:'Boski Serwer',     d:'Chmura obliczeniowa nad chmurami.', lore:'Zahar wynajął serwer od samego Boga. Ping: 0ms. SLA: nieskończoność. Koszty: 1 duszka/rok.', bc:5e10,      o:0,cps:10000000}
 ];
 
-const UPGRADES=[
-  {id:'u1', n:'Mocny Kursor',  c:100,    d:'Kliknięcia dają +1 więcej.',       o:false, e:(g)=>g.cpc+=1},
-  {id:'u2', n:'Szybsze Łzy',    c:500,    d:'Ciotki z Płocka są 2x szybsze.',   o:false, e:(g)=>g.bm.cio*=2},
-  {id:'u3', n:'Mega Palec',    c:2500,   d:'Twoje kliknięcie zyskuje +5% CPS.',o:false, e:(g)=>g.cpcPercent+=0.05},
-  {id:'u4', n:'Algorytm FYP',  c:12000,  d:'Fabryki Memów działają 2x lepiej.',o:false, e:(g)=>g.bm.mfm*=2},
-  {id:'u5', n:'Boska Esencja', c:75000,  d:'Zwiększa bazowe kliknięcie o +25.',o:false, e:(g)=>g.cpc+=25},
-  {id:'u6', n:'TikTok Premium',c:500000, d:'Wszystkie budynki dają 1.5x CPS.',  o:false, e:(g)=>{for(let k in g.bm)g.bm[k]*=1.5}}
-];
-
-const SOUL_SHOP=[
-  {id:'s1', n:'Trwała Esencja',  c:1,  l:0, m:10, d:'+20% do ogólnego CPS na zawsze.',   e:(g)=>g.sm.cps+=0.2},
-  {id:'s2', n:'Boski Palec',     c:2,  l:0, m:5,  d:'+2 kliknięcia na duszka za klik.',  e:(g)=>g.sm.cpc+=2},
-  {id:'s3', n:'Szczęście Zahara',c:5,  l:0, m:1,  d:'Złote memy pojawiają się 2x częściej.',e:(g)=>g.sm.gold=2}
-];
-
-const ACHIEVEMENTS=[
-  {id:'a1', n:'Początek legendy', d:'Kliknij 1 raz.',           f:(g)=>g.total>=1, u:false},
-  {id:'a2', n:'Młody Klikacz',    d:'Zdobądź 1,000 kliknięć.',   f:(g)=>g.clicks>=1000, u:false},
-  {id:'a3', n:'Władca Płocka',   d:'Posiadaj 10 budynków.',     f:(g)=>g.bCount>=10, u:false},
-  {id:'a4', n:'Pierwsze Odrodzenie',d:'Zrób Rebirth chociaż raz.',f:(g)=>g.rebirths>=1, u:false},
-  {id:'a5', n:'Milioner z TikToka',d:'Zdobądź 1,000,000 kliknięć.',f:(g)=>g.clicks>=1000000, u:false}
-];
-
-/* ── GAME STATE ── */
-let G={
-  clicks:0, total:0, rebirths:0, souls:0, activeWorld:'plock',
-  bCount:0, cpc:1, cpcPercent:0, combo:0, lastClick:0,
-  bOwned:{}, bm:{}, sm:{cps:1, cpc:0, gold:1}
-};
-
-// Inicjalizacja domyślna struktur budynków
-BUILDINGS.forEach(b=>{G.bOwned[b.id]=0; G.bm[b.id]=1;});
-
-let activeTab='upg';
-let currentMemeIdx=0;
-let newsIdx=0;
-
-/* ── GAME LOGIC ── */
-function initGame() {
-  loadGame();
-  setupNews();
-  switchTab('upg');
-  renderBuildings();
-  renderUpgrades();
-  renderWorlds();
-  renderSoulShop();
-  updateUI();
+/* ── STUBS FOR HTML ONCLICK FUNCTIONS ── */
+function switchTab(tabId) {
+  const panels = ['upg-panel', 'ach-panel', 'wld-panel', 'soul-panel'];
+  panels.forEach(p => document.getElementById(p).style.display = 'none');
+  const tabs = ['t-upg', 't-ach', 't-wld', 't-soul'];
+  tabs.forEach(t => document.getElementById(t).classList.remove('active'));
   
-  // Loops
-  setInterval(gameTick, 100);
-  setInterval(saveGame, 10000);
-  setInterval(spawnGolden, 25000 / G.sm.gold);
-  setInterval(rotateNews, 6000);
+  document.getElementById(tabId + '-panel').style.display = 'flex';
+  document.getElementById('t-' + tabId).classList.add('active');
 }
 
-function gameTick() {
-  let baseCps = 0;
-  BUILDINGS.forEach(b => {
-    baseCps += G.bOwned[b.id] * b.cps * G.bm[b.id];
-  });
-  
-  let worldMul = WORLDS.find(w=>w.id===G.activeWorld)?.mx || 1;
-  let soulCpsMul = G.sm.cps;
-  let totalCps = baseCps * worldMul * soulCpsMul;
-  
-  if (totalCps > 0) {
-    let added = totalCps / 10;
-    G.clicks += added;
-    G.total += added;
-  }
-  
-  // Sprawdzanie osiagnięć
-  let count=0; for(let k in G.bOwned) count+=G.bOwned[k]; G.bCount = count;
-  ACHIEVEMENTS.forEach(a => {
-    if(!a.u && a.f(G)) {
-      a.u = true;
-      showToast("🏆 Osiągnięcie odblokowane!", a.n);
-      renderAchievements();
-    }
-  });
-
-  updateUI();
-}
-
-function getCpc() {
-  let worldMul = WORLDS.find(w=>w.id===G.activeWorld)?.mx || 1;
-  let base = (G.cpc + G.sm.cpc) * worldMul;
-  let extra = 0;
-  BUILDINGS.forEach(b => { extra += G.bOwned[b.id] * b.cps * G.bm[b.id]; });
-  return base + (extra * G.cpcPercent);
-}
-
-function getCps() {
-  let baseCps = 0;
-  BUILDINGS.forEach(b => { baseCps += G.bOwned[b.id] * b.cps * G.bm[b.id]; });
-  let worldMul = WORLDS.find(w=>w.id===G.activeWorld)?.mx || 1;
-  return baseCps * worldMul * G.sm.cps;
-}
-
-/* ── INTERACTION ── */
-document.getElementById('mring').addEventListener('click', (e) => {
-  let now = Date.now();
-  if (now - G.lastClick < 1000) {
-    G.combo++;
-  } else {
-    G.combo = 1;
-  }
-  G.lastClick = now;
-
-  let gain = getCpc();
-  if (G.combo > 10) gain *= 1.2; // Bonus combo
-  
-  G.clicks += gain;
-  G.total += gain;
-  
-  // Efekty wizualne
-  let cntEl = document.getElementById('cnt');
-  cntEl.classList.remove('bump');
-  void cntEl.offsetWidth;
-  cntEl.classList.add('bump');
-  
-  createFloatingText(e.clientX, e.clientY, `+${Math.floor(gain)}`);
-  
-  // Dźwięk
-  let audio = document.getElementById(MEMES[currentMemeIdx].snd);
-  if(audio) { audio.currentTime = 0; audio.play().catch(()=>{}); }
-  
-  updateUI();
-});
-
-function createFloatingText(x, y, txt) {
-  let el = document.createElement('div');
-  el.className = 'ft';
-  el.style.left = `${x}px`;
-  el.style.top = `${y}px`;
-  el.style.color = ['var(--pk)','var(--bl)','var(--ye)','var(--gr)'][Math.floor(Math.random()*4)];
-  el.innerText = txt;
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 800);
-}
-
-/* ── BUILDINGS BUYING ── */
-function buyBuilding(id) {
-  let b = BUILDINGS.find(x=>x.id===id);
-  let cost = Math.floor(b.bc * Math.pow(1.15, G.bOwned[id]));
-  if (G.clicks >= cost) {
-    G.clicks -= cost;
-    G.bOwned[id]++;
-    renderBuildings();
-    updateUI();
-  }
-}
-
-function renderBuildings() {
-  let container = document.getElementById('blist');
-  container.innerHTML = '';
-  BUILDINGS.forEach(b => {
-    let owned = G.bOwned[b.id];
-    let cost = Math.floor(b.bc * Math.pow(1.15, owned));
-    let cpsc = (b.cps * G.bm[b.id] * (WORLDS.find(w=>w.id===G.activeWorld)?.mx || 1)).toFixed(1);
-    
-    let el = document.createElement('div');
-    el.id = `bld-${b.id}`;
-    el.className = `bld ${G.clicks < cost ? 'dis' : ''}`;
-    el.onclick = () => buyBuilding(b.id);
-    el.innerHTML = `
-      <div class="bi">${b.ic}</div>
-      <div class="bb">
-        <div class="bn">${b.n}</div>
-        <div class="bd2" style="font-size:8px;opacity:0.7">${b.d}</div>
-        <div class="bs">
-          <span class="bo">posiada: ${owned}</span>
-          <span class="br">+${cpsc}/s</span>
-        </div>
-      </div>
-      <div class="brt">
-        <div class="bc">${Math.floor(cost)}</div>
-        <div class="bcl">klików</div>
-      </div>
-    `;
-    container.appendChild(el);
-  });
-}
-
-/* ── UPGRADES ── */
-function buyUpgrade(idx) {
-  let u = UPGRADES[idx];
-  if (!u.o && G.clicks >= u.c) {
-    G.clicks -= u.c;
-    u.o = true;
-    u.e(G);
-    renderUpgrades();
-    updateUI();
-    showToast("⚡ Ulepszenie kupione!", u.n);
-  }
-}
-
-function renderUpgrades() {
-  let container = document.getElementById('upg-panel');
-  container.innerHTML = '';
-  UPGRADES.forEach((u, idx) => {
-    let el = document.createElement('div');
-    el.className = `upg ${u.o ? 'owned' : (G.clicks < u.c ? 'dis' : '')}`;
-    if(!u.o) el.onclick = () => buyUpgrade(idx);
-    el.innerHTML = `
-      <div class="ui2">⚡</div>
-      <div class="ub">
-        <div class="un">${u.n}</div>
-        <div class="ud">${u.d}</div>
-      </div>
-      <div class="ur">
-        ${u.o ? '<span class="udone">KUPIONE</span>' : `<span class="ucost">${u.c}</span>`}
-      </div>
-    `;
-    container.appendChild(el);
-  });
-}
-
-/* ── WORLDS ── */
-function travelWorld(id) {
-  let w = WORLDS.find(x=>x.id===id);
-  if (G.rebirths >= w.rbReq) {
-    G.activeWorld = id;
-    // Zastosuj style świata
-    for (let k in w.css) {
-      document.documentElement.style.setProperty(`--${k}`, w.css[k]);
-    }
-    renderWorlds();
-    renderBuildings();
-    updateUI();
-    showToast("🌍 Zmieniono świat!", `Witamy w: ${w.n}`);
-  }
-}
-
-function renderWorlds() {
-  let container = document.getElementById('wld-panel');
-  container.innerHTML = '';
-  WORLDS.forEach(w => {
-    let isCur = G.activeWorld === w.id;
-    let isLck = G.rebirths < w.rbReq;
-    let el = document.createElement('div');
-    el.className = `wcard ${isCur ? 'cur' : ''} ${isLck ? 'lck' : ''}`;
-    if (!isCur && !isLck) el.onclick = () => travelWorld(w.id);
-    
-    el.innerHTML = `
-      <div class="wt">
-        <div class="wic">${w.ic}</div>
-        <div class="win">
-          <div class="wn">${w.n} ${isCur?'<span class="wab">Tu jesteś</span>':''}</div>
-          <div class="wd">${w.d}</div>
-          <div class="wb">Mnożnik: x${w.mx}</div>
-          ${isLck ? `<div class="wreq">Wymaga ${w.rbReq} Rebirthów</div>` : ''}
-        </div>
-      </div>
-      <div class="wlore">${w.lore}</div>
-    `;
-    container.appendChild(el);
-  });
-}
-
-/* ── SOUL SHOP ── */
-function buySoulItem(idx) {
-  let s = SOUL_SHOP[idx];
-  if (s.l < s.m && G.souls >= s.c) {
-    G.souls -= s.c;
-    s.l++;
-    s.e(G);
-    renderSoulShop();
-    updateUI();
-  }
-}
-
-function renderSoulShop() {
-  let container = document.getElementById('sitms');
-  let lockMsg = document.getElementById('slck');
-  if(G.rebirths === 0 && G.souls === 0) {
-    container.style.display = 'none';
-    lockMsg.style.display = 'block';
-    return;
-  }
-  container.style.display = 'flex';
-  lockMsg.style.display = 'none';
-  
-  container.innerHTML = '';
-  SOUL_SHOP.forEach((s, idx) => {
-    let isMax = s.l >= s.m;
-    let el = document.createElement('div');
-    el.className = `sitm ${isMax ? 'mx' : (G.souls < s.c ? 'dis' : '')}`;
-    if(!isMax) el.onclick = () => buySoulItem(idx);
-    el.innerHTML = `
-      <div class="sic">💀</div>
-      <div class="sb">
-        <div class="sbn">${s.n}</div>
-        <div class="sbd">${s.d}</div>
-        <div class="sbe">Poziom: ${s.l}/${s.m}</div>
-      </div>
-      <div class="srt">
-        ${isMax ? '<span class="udone">MAX</span>' : `<span class="scost">${s.c} 💀</span>`}
-      </div>
-    `;
-    container.appendChild(el);
-  });
-}
-
-function renderAchievements() {
-  let container = document.getElementById('ach-panel');
-  container.innerHTML = '';
-  ACHIEVEMENTS.forEach(a => {
-    let el = document.createElement('div');
-    el.className = `ach ${a.u ? 'ul' : ''}`;
-    el.innerHTML = `
-      <div class="ai">${a.u ? '🏆' : '🔒'}</div>
-      <div class="ab">
-        <div class="abn">${a.n}</div>
-        <div class="abd">${a.d}</div>
-      </div>
-    `;
-    container.appendChild(el);
-  });
-}
-
-/* ── REBIRTH SYSTEM ── */
-function calculateSoulsEarned() {
-  if (G.clicks < 100000) return 0;
-  return Math.floor(Math.sqrt(G.clicks / 100000));
-}
-
-function openRb() {
-  let earned = calculateSoulsEarned();
-  document.getElementById('msp').innerText = earned;
-  document.getElementById('rmodal').classList.add('open');
-}
 function closeRb() {
   document.getElementById('rmodal').classList.remove('open');
 }
+
 function doRebirth() {
-  let earned = calculateSoulsEarned();
-  if (earned > 0) {
-    G.souls += earned;
-    G.rebirths++;
-    G.clicks = 0;
-    
-    // Resetuj budynki i ulepszenia standardowe
-    BUILDINGS.forEach(b => G.bOwned[b.id] = 0);
-    UPGRADES.forEach(u => u.o = false);
-    
-    // Przywróć podstawowe mnożniki modyfikowane przez ulepszenia
-    G.cpc = 1;
-    G.cpcPercent = 0;
-    BUILDINGS.forEach(b => G.bm[b.id] = 1);
-    
-    closeRb();
-    renderBuildings();
-    renderUpgrades();
-    renderSoulShop();
-    renderWorlds();
-    updateUI();
-    showToast("💀 Odrodzenie dokonane!", `Zyskałeś ${earned} duszków wirali.`);
-    saveGame();
-  }
+  alert('Odradzanie się...');
+  closeRb();
 }
-
-/* ── GOLDEN MEME ── */
-function spawnGolden() {
-  let btn = document.getElementById('golden');
-  btn.style.left = `${Math.random() * (window.innerWidth - 100) + 10}px`;
-  btn.style.top = `${Math.random() * (window.innerHeight - 100) + 50}px`;
-  btn.classList.add('show');
-  
-  let clickFunc = () => {
-    let bonus = Math.max(50, getCpc() * 45);
-    G.clicks += bonus;
-    G.total += bonus;
-    showToast("✨ Boski Traf!", `Złoty Zahar daje +${Math.floor(bonus)} kliknięć!`);
-    btn.classList.remove('show');
-    btn.removeEventListener('click', clickFunc);
-  };
-  btn.addEventListener('click', clickFunc);
-  
-  setTimeout(() => {
-    btn.classList.remove('show');
-    btn.removeEventListener('click', clickFunc);
-  }, 6000);
-}
-
-/* ── NAVIGATION & UI ── */
-function switchTab(t) {
-  activeTab = t;
-  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tc').forEach(el => el.style.display = 'none');
-  
-  document.getElementById(`t-${t}`).classList.add('active');
-  document.getElementById(`${t}-panel`).style.display = 'flex';
-  
-  if (t === 'ach') renderAchievements();
-}
-
-document.getElementById('nm').addEventListener('click', () => {
-  currentMemeIdx = (currentMemeIdx + 1) % MEMES.length;
-  updateMemeDisplay();
-});
-document.getElementById('pm').addEventListener('click', () => {
-  currentMemeIdx = (currentMemeIdx - 1 + MEMES.length) % MEMES.length;
-  updateMemeDisplay();
-});
-
-function updateMemeDisplay() {
-  let m = MEMES[currentMemeIdx];
-  document.getElementById('mlbl').innerText = m.l;
-  document.getElementById('mnm').innerText = m.l;
-  // Możesz podstawić realną grafikę podmieniając atrybut src, np.: m.s
-}
-
-function updateUI() {
-  let fmt = (v) => Math.floor(v).toLocaleString('pl-PL');
-  document.getElementById('cnt').innerText = fmt(G.clicks);
-  document.getElementById('sc').innerText = fmt(G.clicks);
-  document.getElementById('sat').innerText = fmt(G.total);
-  document.getElementById('scps').innerText = fmt(getCps());
-  document.getElementById('srb').innerText = G.rebirths;
-  document.getElementById('scombo').innerText = G.combo;
-  document.getElementById('sbal').innerText = G.souls;
-  document.getElementById('pci').innerHTML = `+<strong>${fmt(getCpc())}</strong> za klik`;
-  
-  let earned = calculateSoulsEarned();
-  let rInfo = document.getElementById('rinfo');
-  let rBtn = document.getElementById('rbtn');
-  
-  if (earned > 0) {
-    rInfo.classList.add('vis');
-    rBtn.classList.add('vis');
-    document.getElementById('rsp').innerText = earned;
-    rBtn.onclick = openRb;
-  } else {
-    rInfo.classList.remove('vis');
-    rBtn.classList.remove('vis');
-  }
-  
-  // Aktualizacja statusu dostępności budynków w widoku (szybka klasa .dis)
-  BUILDINGS.forEach(b => {
-    let el = document.getElementById(`bld-${b.id}`);
-    if(el) {
-      let cost = Math.floor(b.bc * Math.pow(1.15, G.bOwned[b.id]));
-      if(G.clicks >= cost) el.classList.remove('dis');
-      else el.classList.add('dis');
-    }
-  });
-  
-  let w = WORLDS.find(x=>x.id===G.activeWorld);
-  document.getElementById('wind').innerHTML = `<span class="wlabel">${w.ic} ${w.n} (x${w.mx})</span>`;
-}
-
-/* ── NEWS TICKER ── */
-function setupNews() {
-  rotateNews();
-}
-function rotateNews() {
-  newsIdx = Math.floor(Math.random() * NEWS.length);
-  document.getElementById('ntrack').innerText = NEWS[newsIdx];
-}
-
-/* ── TOAST ── */
-function showToast(title, body) {
-  let t = document.getElementById('toast');
-  document.getElementById('tt').innerText = title;
-  document.getElementById('tb').innerText = body;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3500);
-}
-
-/* ── SAVE/LOAD ── */
-function saveGame() {
-  localStorage.setItem('zahar_clicker_save_v2', JSON.stringify({
-    G: G,
-    upgradesOwned: UPGRADES.map(u => u.o),
-    soulShopLevels: SOUL_SHOP.map(s => s.l)
-  }));
-  let s = document.getElementById('savi');
-  s.classList.add('show');
-  setTimeout(() => s.classList.remove('show'), 2000);
-}
-
-function loadGame() {
-  let raw = localStorage.getItem('zahar_clicker_save_v2');
-  if (raw) {
-    try {
-      let data = JSON.parse(raw);
-      if(data.G) {
-        // Połączenie struktur dla kompatybilności wstecznej
-        G = Object.assign(G, data.G);
-      }
-      if(data.upgradesOwned) {
-        data.upgradesOwned.forEach((owned, idx) => {
-          if(UPGRADES[idx]) {
-            UPGRADES[idx].o = owned;
-            if(owned) UPGRADES[idx].e(G);
-          }
-        });
-      }
-      if(data.soulShopLevels) {
-        data.soulShopLevels.forEach((lvl, idx) => {
-          if(SOUL_SHOP[idx]) {
-            SOUL_SHOP[idx].l = lvl;
-            for(let i=0; i<lvl; i++) SOUL_SHOP[idx].e(G);
-          }
-        });
-      }
-    } catch(e) {
-      console.error("Błąd ładowania zapisu", e);
-    }
-  }
-}
-
-// Uruchomienie aplikacji po załadowaniu drzewa DOM
-window.addEventListener('DOMContentLoaded', initGame);
 </script>
 </body>
 </html>
